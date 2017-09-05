@@ -2,20 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const styles = theme => ({});
+const styles = {
+    headerTitle: {
+        color: 'white'
+    }
+};
 
 class Header extends Component {
     render() {
         const { classes } = this.props;
 
         return (
-            <h1>RepoNotes</h1>
+            <header className="header background-primary">
+                <h1 style={styles.headerTitle}>RepoNotes</h1>
+            </header>
         );
     }
-}
-
-Header.propTypes = {
-    classes: PropTypes.object.isRequired
 }
 
 export default Header;

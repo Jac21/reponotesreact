@@ -9,17 +9,13 @@ class RepoNote extends Component {
         const { classes } = this.props;
 
         return (
-            <div class="field">
-                <label for="input-textarea">{this.props.repoName}</label>
-                <textarea id="input-textarea" cols="30" rows="5" placeholder="Textarea text"></textarea>
+            <div className="field">
+                <label htmlFor="input-textarea">{this.props.repoName}</label>
+                <textarea id="input-textarea" cols="30" rows="5" placeholder="Enter notes here..."></textarea>
                 <button>Save</button>
             </div>
         );
     }
-}
-
-RepoNote.propTypes = {
-    classes: PropTypes.object.isRequired
 }
 
 export default RepoNote;

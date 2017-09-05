@@ -14,21 +14,17 @@ class UsernameForm extends Component {
 
         return (
             <form>
-                <div class="field">
-                    <label for="form-simple-email">GitHub Username</label>
+                <div className="field">
+                    <label htmlFor="form-github-username">GitHub Username</label>
                     <input type="text" id="form-github-username" placeholder="Handle" />
                 </div>
-                <div class="field">
-                    <button type="submit" class="button">Get and Show Repository Data</button>
-                    <button class="button" disabled={this.state.disabled}>Export Notes</button>
+                <div className="field">
+                    <button type="submit" className="button">Get and Show Repository Data</button>
+                    <button className="button" disabled={this.state.disabled}>Export Notes</button>
                 </div>
             </form>
         );
     }
-}
-
-UsernameForm.propTypes = {
-    classes: PropTypes.object.isRequired
 }
 
 export default UsernameForm;
