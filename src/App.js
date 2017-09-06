@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from './components/Header/Header';
+import Header from './components/Common/Header';
 import Navbar from './components/Navbar/Navbar';
 import RepoNoteList from './components/RepoNoteList/RepoNoteList';
 import UsernameForm from './components/UsernameForm/UsernameForm';
