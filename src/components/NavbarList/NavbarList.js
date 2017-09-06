@@ -22,7 +22,6 @@ class NavbarList extends Component {
         const { classes } = this.props;
 
         return (
-
             <ul>
                 <li style={styles.repoListItem}>
                     <a href="/" style={styles.repoListLink}>Repository One</a>

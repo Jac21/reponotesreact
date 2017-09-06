@@ -23,5 +23,5 @@ describe('<Header />', () => {
     it('should contain a title of RepoNotes within the <h1> element', () => {
         const wrapper = setup();
 		expect(wrapper.find('h1').text()).toEqual('RepoNotes');
-    })
+    });
 });
