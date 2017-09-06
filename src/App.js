@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import RepoNote from './components/RepoNote/RepoNote';
+import RepoNoteList from './components/RepoNoteList/RepoNoteList';
 import UsernameForm from './components/UsernameForm/UsernameForm';
 
 import './css/App.css';
@@ -15,7 +15,7 @@ class App extends Component {
         <div className="main">
           <Header />
           <UsernameForm />
-          <RepoNote repoName="RepoNotes" />
+          <RepoNoteList />
         </div>
       </div>
     );

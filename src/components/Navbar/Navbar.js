@@ -14,10 +14,19 @@ const styles = {
         overflow: 'auto',
         WebkitOverflowScrolling: 'touch',
         background: 'white',
+    },
+    exportNotesButton: {
+        position: 'absolute',
+        bottom: 0,
+        width: 100 + '%',
     }
 };
 
 class Navbar extends Component {
+    state = {
+        disabled: true
+    };
+
     render() {
         const { classes } = this.props;
 
@@ -30,6 +39,8 @@ class Navbar extends Component {
                 <nav className="navigation">
                     <NavbarList />
                 </nav>
+                <button className="button" disabled={this.state.disabled}
+                    style={styles.exportNotesButton}>Export Notes</button>
             </aside>
         );
     }
