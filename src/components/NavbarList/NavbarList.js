@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 
-const styles = theme => ({});
+const styles = {
+    repoListItem: {
+        margin: 0,
+        padding: 0,
+        fontWeight: 500,
+        fontSize: 1 + 'rem',
+        lineHeight: 1.35,
+    },
+    repoListLink: {
+        display: 'block',
+        padding: '.5em 1em',
+        textDecoration: 'none',
+    }
+}
 
 class NavbarList extends Component {
     render() {
         const { classes } = this.props;
 
         return (
-            <h1>NavbarList</h1>
+
+            <ul>
+                <li style={styles.repoListItem}>
+                    <a href="/" style={styles.repoListLink}>Repository One</a>
+                </li>
+                <li style={styles.repoListItem}>
+                    <a href="/" style={styles.repoListLink}>Repository Two</a>
+                </li>
+                <li style={styles.repoListItem}>
+                    <a href="/" style={styles.repoListLink}>Repository Three</a>
+                </li>
+            </ul>
         );
     }
-}
-
-NavbarList.propTypes = {
-    classes: PropTypes.object.isRequired
 }
 
 export default NavbarList;
