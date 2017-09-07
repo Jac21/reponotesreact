@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-
-const styles = theme => ({});
+// import PropTypes from 'prop-types';
+// import classNames from 'classnames';
 
 class RepoNote extends Component {
     render() {
-        const { classes } = this.props;
+        // const { classes } = this.props;
 
         return (
             <div className="field">

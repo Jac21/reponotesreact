@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-
-const styles = theme => ({});
+// import PropTypes from 'prop-types';
+// import classNames from 'classnames';
 
 class UsernameForm extends Component {
+    handleClick() {
+        console.log("hello there");
+    }
+
     render() {
-        const { classes } = this.props;
+        // const { classes } = this.props;
 
         return (
             <form>
@@ -14,7 +16,8 @@ class UsernameForm extends Component {
                     <input type="text" id="form-github-username" placeholder="Enter your GitHub Username..." />
                 </div>
                 <div className="field">
-                    <button type="submit" className="button">Get and Show Repository Data</button>
+                    <button type="submit" className="button"
+                        onClick={this.handleClick}>Get and Show Repository Data</button>
                 </div>
             </form>
         );

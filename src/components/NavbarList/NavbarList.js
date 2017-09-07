@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // import classNames from 'classnames';
 
 const styles = {
@@ -19,7 +19,7 @@ const styles = {
 
 class NavbarList extends Component {
     render() {
-        const { classes } = this.props;
+        // const { classes } = this.props;
 
         return (
             <ul>

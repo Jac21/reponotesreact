@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // import classNames from 'classnames';
 
 import NavbarList from '../NavbarList/NavbarList';
@@ -28,7 +28,7 @@ class Navbar extends Component {
     };
 
     render() {
-        const { classes } = this.props;
+        // const { classes } = this.props;
 
         return (
             <aside style={styles.sidebar}>

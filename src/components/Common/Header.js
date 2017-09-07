@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+// import PropTypes from 'prop-types';
+// import classNames from 'classnames';
 
 const styles = {
     headerTitle: {
@@ -10,7 +10,7 @@ const styles = {
 
 class Header extends Component {
     render() {
-        const { classes } = this.props;
+        // const { classes } = this.props;
 
         return (
             <header className="header background-primary">
