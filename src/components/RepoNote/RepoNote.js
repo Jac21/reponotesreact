@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-// import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 class RepoNote extends Component {
     render() {
-        // const { classes } = this.props;
-
         return (
             <div className="field">
                 <label htmlFor="input-textarea">{this.props.repoName}</label>
@@ -14,6 +11,10 @@ class RepoNote extends Component {
             </div>
         );
     }
+}
+
+RepoNote.propTypes = {
+    repoName: PropTypes.string
 }
 
 export default RepoNote;

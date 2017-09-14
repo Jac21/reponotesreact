@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-// import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import RepoNote from '../RepoNote/RepoNote';
 
 class RepoNoteList extends Component {
     render() {
-        // const { classes } = this.props;
-
         return (
             <div>
                 <h2>Repositories</h2>
                 <div>
-                    <RepoNote repoName="RepoNotes" />
+                    {
+                        this.props.repositories &&
+                        this.props.repositories.map(item =>
+                            <RepoNote key={item.id} repoName={item.name} />)
+                    }
                 </div>
             </div>
         );
     }
+}
+
+RepoNoteList.propTypes = {
+    repositories: PropTypes.array
 }
 
 export default RepoNoteList;

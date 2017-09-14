@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-// import classNames from 'classnames';
 
 const styles = {
     repoListItem: {
@@ -19,20 +18,11 @@ const styles = {
 
 class NavbarList extends Component {
     render() {
-        // const { classes } = this.props;
-
         return (
-            <ul>
-                <li style={styles.repoListItem}>
-                    <a href="/" style={styles.repoListLink}>Repository One</a>
-                </li>
-                <li style={styles.repoListItem}>
-                    <a href="/" style={styles.repoListLink}>Repository Two</a>
-                </li>
-                <li style={styles.repoListItem}>
-                    <a href="/" style={styles.repoListLink}>Repository Three</a>
-                </li>
-            </ul>
+            <li style={styles.repoListItem}>
+                <a href={this.props.repoLink} target="_blank" rel="noopener noreferrer"
+                    style={styles.repoListLink}>{this.props.repoName}</a>
+            </li>
         );
     }
 }

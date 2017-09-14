@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-// import classNames from 'classnames';
 
 import NavbarList from '../NavbarList/NavbarList';
 
@@ -28,8 +27,6 @@ class Navbar extends Component {
     };
 
     render() {
-        // const { classes } = this.props;
-
         return (
             <aside style={styles.sidebar}>
                 <form id="search-container" className="search">
@@ -37,7 +34,13 @@ class Navbar extends Component {
                     <ul id="search-results" className="search-results"></ul>
                 </form>
                 <nav className="navigation">
-                    <NavbarList />
+                    <ul>
+                        {
+                            this.props.repositories &&
+                            this.props.repositories.map(item =>
+                                <NavbarList key={item.id} repoName={item.name} repoLink={item.html_url} />)
+                        }
+                    </ul>
                 </nav>
                 <button className="button" disabled={this.state.disabled}
                     style={styles.exportNotesButton}>Export Notes</button>
