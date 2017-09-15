@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-// import classNames from 'classnames';
 
 class UsernameForm extends Component {
     constructor(props) {
@@ -37,8 +36,6 @@ class UsernameForm extends Component {
     }
 
     render() {
-        // const { classes } = this.props;
-
         return (
             <form onSubmit={this.onSearch}>
                 <div className="field">

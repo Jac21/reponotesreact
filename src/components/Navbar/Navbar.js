@@ -31,7 +31,7 @@ class Navbar extends Component {
             <aside style={styles.sidebar}>
                 <form id="search-container" className="search">
                     <input id="search-input" className="search-input"
-                        type="search" placeholder="GitHub Username" />
+                        type="search" placeholder="Repository" />
                     <ul id="search-results" className="search-results"></ul>
                 </form>
                 <nav className="navigation">

@@ -5,7 +5,7 @@ import NavbarList from './NavbarList';
 import { shallow, mount, render } from 'enzyme';
 import TestUtils from 'react-addons-test-utils';
 
-var setup = function() {
+var setup = function () {
     return shallow(<NavbarList />);
 };
 

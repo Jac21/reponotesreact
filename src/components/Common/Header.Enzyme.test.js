@@ -5,7 +5,7 @@ import Header from './Header';
 import { shallow, mount, render } from 'enzyme';
 import TestUtils from 'react-addons-test-utils';
 
-var setup = function() {
+var setup = function () {
     return shallow(<Header />);
 };
 
@@ -22,6 +22,6 @@ describe('<Header />', () => {
 
     it('should contain a title of RepoNotes within the <h1> element', () => {
         const wrapper = setup();
-		expect(wrapper.find('h1').text()).toEqual('RepoNotes');
+        expect(wrapper.find('h1').text()).toEqual('RepoNotes');
     });
 });
