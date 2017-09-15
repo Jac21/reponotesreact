@@ -5,8 +5,9 @@ class RepoNote extends Component {
     render() {
         return (
             <div className="field">
-                <label htmlFor="input-textarea">{this.props.repoName}</label>
-                <textarea id="input-textarea" cols="30" rows="5" placeholder="Enter notes here..."></textarea>
+                <label htmlFor="input-textarea">{this.props.repositoryName}</label>
+                <textarea id="input-textarea" cols="30" rows="5"
+                    placeholder="Enter notes here..."></textarea>
                 <button>Save</button>
             </div>
         );
@@ -14,7 +15,7 @@ class RepoNote extends Component {
 }
 
 RepoNote.propTypes = {
-    repoName: PropTypes.string
+    repositoryName: PropTypes.string
 }
 
 export default RepoNote;

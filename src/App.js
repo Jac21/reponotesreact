@@ -12,14 +12,14 @@ class App extends Component {
     super(props);
     this.state = {
       username: localStorage.getItem("LastHandle"),
-      repos: null
+      repositories: null
     };
   }
 
   componentDidMount() {
     if (this.state.username) {
       var cachedRepositories = localStorage.getItem(this.state.username);
-      this.setState({ repos: JSON.parse(cachedRepositories) });
+      this.setState({ repositories: JSON.parse(cachedRepositories) });
     }
   }
 
@@ -37,7 +37,7 @@ class App extends Component {
 
     const cachedHits = localStorage.getItem(value);
     if (cachedHits) {
-      this.setState({ repos: JSON.parse(cachedHits) });
+      this.setState({ repositories: JSON.parse(cachedHits) });
       return;
     }
 
@@ -48,13 +48,13 @@ class App extends Component {
 
   onSetResult = (result, key) => {
     localStorage.setItem(key, JSON.stringify(result));
-    this.setState({ repos: result });
+    this.setState({ repositories: result });
   }
 
   render() {
     return (
       <div className="App">
-        <Navbar repositories={this.state.repos} />
+        <Navbar repositories={this.state.repositories} />
         <div className="main">
           <Header />
 
@@ -70,7 +70,7 @@ class App extends Component {
             </div>
           </form>
 
-          <RepoNoteList repositories={this.state.repos} />
+          <RepoNoteList repositories={this.state.repositories} />
         </div>
       </div>
     );

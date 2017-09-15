@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const styles = {
     repoListItem: {
@@ -25,6 +25,11 @@ class NavbarList extends Component {
             </li>
         );
     }
+}
+
+NavbarList.propTypes = {
+    repoListLink: PropTypes.string,
+    repoName: PropTypes.string
 }
 
 export default NavbarList;

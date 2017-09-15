@@ -12,7 +12,7 @@ class RepoNoteList extends Component {
                     {
                         this.props.repositories &&
                         this.props.repositories.map(item =>
-                            <RepoNote key={item.id} repoName={item.name} />)
+                            <RepoNote key={item.id} repositoryName={item.name} />)
                     }
                 </div>
             </div>

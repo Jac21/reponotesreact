@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import NavbarList from '../NavbarList/NavbarList';
 
@@ -30,7 +30,8 @@ class Navbar extends Component {
         return (
             <aside style={styles.sidebar}>
                 <form id="search-container" className="search">
-                    <input id="search-input" className="search-input" type="search" placeholder="GitHub Username" />
+                    <input id="search-input" className="search-input"
+                        type="search" placeholder="GitHub Username" />
                     <ul id="search-results" className="search-results"></ul>
                 </form>
                 <nav className="navigation">
@@ -38,7 +39,8 @@ class Navbar extends Component {
                         {
                             this.props.repositories &&
                             this.props.repositories.map(item =>
-                                <NavbarList key={item.id} repoName={item.name} repoLink={item.html_url} />)
+                                <NavbarList key={item.id}
+                                    repoName={item.name} repoLink={item.html_url} />)
                         }
                     </ul>
                 </nav>
@@ -47,6 +49,10 @@ class Navbar extends Component {
             </aside>
         );
     }
+}
+
+Navbar.propTypes = {
+    repositories: PropTypes.array
 }
 
 export default Navbar;
