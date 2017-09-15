@@ -2,6 +2,7 @@
   "name": "reponotesreact",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jac21.github.io/reponotesreact",
   "dependencies": {
     "classnames": "^2.2.5",
     "gh-pages": "^1.0.0",
@@ -11,6 +12,8 @@
     "turretcss": "^4.0.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
