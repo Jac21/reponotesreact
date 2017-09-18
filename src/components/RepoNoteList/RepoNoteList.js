@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import RepoNote from '../RepoNote/RepoNote';
 
 class RepoNoteList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
     render() {
         return (
             <div>

@@ -17,6 +17,11 @@ const styles = {
 }
 
 class NavbarList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
     render() {
         return (
             <li style={styles.repoListItem}>

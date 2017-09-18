@@ -22,16 +22,19 @@ const styles = {
 };
 
 class Navbar extends Component {
-    state = {
-        disabled: true
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            disabled: true
+        };
+    }
 
     render() {
         return (
-            <aside style={styles.sidebar}>
+            <aside className="sidebar" style={styles.sidebar}>
                 <form id="search-container" className="search">
                     <input id="search-input" className="search-input"
-                        type="search" placeholder="Repository" />
+                        type="search" placeholder="Repository name..." />
                     <ul id="search-results" className="search-results"></ul>
                 </form>
                 <nav className="navigation">
