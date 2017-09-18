@@ -70,7 +70,7 @@ class App extends Component {
             </div>
           </form>
 
-          <RepoNoteList repositories={this.state.repositories} />
+          <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
         </div>
       </div>
     );

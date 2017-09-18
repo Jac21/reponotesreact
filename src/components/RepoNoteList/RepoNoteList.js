@@ -17,7 +17,8 @@ class RepoNoteList extends Component {
                     {
                         this.props.repositories &&
                         this.props.repositories.map(item =>
-                            <RepoNote key={item.id} repositoryName={item.name} />)
+                            <RepoNote key={item.id} repositoryName={item.name}
+                                username={this.props.username} />)
                     }
                 </div>
             </div>
