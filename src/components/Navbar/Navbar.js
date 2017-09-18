@@ -47,8 +47,8 @@ class Navbar extends Component {
                         }
                     </ul>
                 </nav>
-                <button className="button" disabled={this.state.disabled}
-                    style={styles.exportNotesButton}>Export Notes</button>
+                {/* <button className="button" disabled={this.state.disabled}
+                    style={styles.exportNotesButton}>Export Notes</button> */}
             </aside>
         );
     }

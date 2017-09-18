@@ -13,6 +13,8 @@ class RepoNote extends Component {
         localStorage.setItem(this.props.username + this.props.repositoryName, this.state.note);
     }
 
+    exportNote = (e) => { }
+
     handleChange = (e) => {
         this.setState({ note: e.target.value });
     }
@@ -29,6 +31,8 @@ class RepoNote extends Component {
                     placeholder="Enter notes here..."></textarea>
                 <button id={this.props.username + this.props.repositoryName + "SaveButton"}
                     onClick={this.saveNote}>Save</button>
+                <button id={this.props.username + this.props.repositoryName + "ExportButton"}
+                    onClick={this.exportNote}>Export</button>
             </div>
         );
     }
