@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './components/Common/Header';
+import ErrorAlert from './components/Common/Alerts/ErrorAlert';
 import Navbar from './components/Navbar/Navbar';
 import RepoNoteList from './components/RepoNoteList/RepoNoteList';
 // import UsernameForm from './components/UsernameForm/UsernameForm';
@@ -11,8 +12,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: localStorage.getItem("LastHandle"),
-      repositories: null
+      username: localStorage.getItem('LastHandle'),
+      repositories: null,
+      errorState: false
     };
   }
 
@@ -36,7 +38,7 @@ class App extends Component {
       return;
     } else {
       this.setState({ username: value });
-      localStorage.setItem("LastHandle", value);
+      localStorage.setItem('LastHandle', value);
     }
 
     const cachedHits = localStorage.getItem(value);
@@ -46,13 +48,22 @@ class App extends Component {
     }
 
     fetch(`https://api.github.com/users/${value}/repos`)
+      .catch(error => {
+        return Promise.reject(error);
+      })
       .then(response => response.json())
       .then(result => this.onSetResult(result, value));
   }
 
   onSetResult = (result, key) => {
-    localStorage.setItem(key, JSON.stringify(result));
-    this.setState({ repositories: result });
+    if (result.message === "Not Found") {
+      localStorage.removeItem('LastHandle');
+      this.setState({ errorState: true });
+    } else {
+      localStorage.setItem(key, JSON.stringify(result));
+      this.setState({ errorState: false });
+      this.setState({ repositories: result });
+    }
   }
 
   render() {
@@ -73,6 +84,9 @@ class App extends Component {
                 onClick={this.onSearch}>Get and Show Repository Data</button>
             </div>
           </form>
+
+          {this.state.errorState ?
+            <ErrorAlert message="Error: User not found!" /> : null}
 
           <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
         </div>
