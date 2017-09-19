@@ -11,6 +11,7 @@ class RepoNote extends Component {
         };
     }
 
+    // Enables export button if note had been pre-filled
     componentDidMount() {
         if (this.state.note !== '') {
             this.setState({ exportDisabled: false });
@@ -19,12 +20,13 @@ class RepoNote extends Component {
 
     // Sets local storage variable using concatenated username and repository name to
     // ensure no collisions occur when using multiple accounts, saves textarea value
+    // and enables export button
     saveNote = (e) => {
         localStorage.setItem(this.props.username + this.props.repositoryName, this.state.note);
         this.setState({ exportDisabled: false });
     }
 
-    // TODO
+    // Creates and downloads a text file representatin of the repo note
     exportNote = (e) => {
         let blob = new Blob([this.state.note], { type: "text/plain;charset=utf-8" });
 
