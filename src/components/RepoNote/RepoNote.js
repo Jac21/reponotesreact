@@ -27,16 +27,16 @@ class RepoNote extends Component {
     render() {
         return (
             <div className="field">
-                <label htmlFor={this.props.username + this.props.repositoryName + "InputTextarea"}>
+                <label htmlFor={`${this.props.username}${this.props.repositoryName}InputLabel`}>
                     {this.props.repositoryName}
                 </label>
-                <textarea id={this.props.username + this.props.repositoryName + "InputTextarea"}
+                <textarea id={`${this.props.username}${this.props.repositoryName}InputTextarea`}
                     value={this.state.note}
                     onChange={this.handleChange} cols="30" rows="5"
                     placeholder="Enter notes here..."></textarea>
-                <button id={this.props.username + this.props.repositoryName + "SaveButton"}
+                <button id={`${this.props.username}${this.props.repositoryName}SaveButton`}
                     onClick={this.saveNote}>Save</button>
-                <button id={this.props.username + this.props.repositoryName + "ExportButton"}
+                <button id={`${this.props.username}${this.props.repositoryName}ExportButton`}
                     onClick={this.exportNote}>Export</button>
             </div>
         );

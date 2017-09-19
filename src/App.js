@@ -45,7 +45,7 @@ class App extends Component {
       return;
     }
 
-    fetch('https://api.github.com/users/' + value + '/repos')
+    fetch(`https://api.github.com/users/${value}/repos`)
       .then(response => response.json())
       .then(result => this.onSetResult(result, value));
   }
