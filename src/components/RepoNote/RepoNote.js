@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+// Singular repository note component
 class RepoNote extends Component {
     constructor(props) {
         super(props);
@@ -9,12 +10,16 @@ class RepoNote extends Component {
         };
     }
 
+    // Sets local storage variable using concatenated username and repository name to
+    // ensure no collisions occur when using multiple accounts, saves textarea value
     saveNote = (e) => {
         localStorage.setItem(this.props.username + this.props.repositoryName, this.state.note);
     }
 
+    // TODO
     exportNote = (e) => { }
 
+    // Handles textarea change event, saves value to state variable
     handleChange = (e) => {
         this.setState({ note: e.target.value });
     }

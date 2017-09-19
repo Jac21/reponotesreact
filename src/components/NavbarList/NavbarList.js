@@ -16,6 +16,7 @@ const styles = {
     }
 }
 
+// Singular list component for Navbar, contains list of repositories for current user
 class NavbarList extends Component {
     constructor(props) {
         super(props);

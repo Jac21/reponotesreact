@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import RepoNote from '../RepoNote/RepoNote';
 
+// Parent component for repo notes, maps data to each note component
+// utilizing the repository name and associated ID
 class RepoNoteList extends Component {
     constructor(props) {
         super(props);

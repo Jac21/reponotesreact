@@ -16,6 +16,8 @@ class App extends Component {
     };
   }
 
+  // If user has already retreived notes before, obtain them from
+  // local storage cache when component mounts, set state accordingly
   componentDidMount() {
     if (this.state.username) {
       var cachedRepositories = localStorage.getItem(this.state.username);
@@ -23,6 +25,8 @@ class App extends Component {
     }
   }
 
+  // Set local storage key for user, fetch GitHub repository data,
+  // and set local storage cache on retreived JSON
   onSearch = (e) => {
     e.preventDefault();
 
