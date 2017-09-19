@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const styles = {
     headerTitle: {
@@ -16,10 +16,18 @@ class Header extends Component {
     render() {
         return (
             <header className="header background-primary">
-                <h1 style={styles.headerTitle}>RepoNotes</h1>
+                <h1 style={styles.headerTitle}>
+                    RepoNotes
+                    {this.props.username &&
+                        ` for ${this.props.username}`}
+                </h1>
             </header>
         );
     }
+}
+
+Header.propTypes = {
+    username: PropTypes.string
 }
 
 export default Header;

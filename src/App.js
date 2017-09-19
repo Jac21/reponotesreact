@@ -71,7 +71,7 @@ class App extends Component {
       <div className="App">
         <Navbar repositories={this.state.repositories} />
         <div className="main">
-          <Header />
+          <Header username={this.state.username} />
 
           <form onSubmit={this.onSearch}>
             <div className="field">
@@ -80,7 +80,7 @@ class App extends Component {
                 ref={node => this.input = node} />
             </div>
             <div className="field">
-              <button type="submit" className="button"
+              <button type="submit" className="button button-primary"
                 onClick={this.onSearch}>Get and Show Repository Data</button>
             </div>
           </form>
@@ -88,7 +88,9 @@ class App extends Component {
           {this.state.errorState ?
             <ErrorAlert message="Error: User not found!" /> : null}
 
-          <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
+          <div className="container">
+            <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
+          </div>
         </div>
       </div>
     );
