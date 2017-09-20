@@ -81,7 +81,7 @@ class App extends Component {
                   ref={node => this.input = node} />
               </div>
               <div className="field">
-                <button type="submit" className="button button-primary"
+                <button type="submit" className="button button-primary button-primary-reponotes"
                   onClick={this.onSearch}>Get and Show Repository Data</button>
               </div>
             </form>

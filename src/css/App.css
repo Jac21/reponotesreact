@@ -1,5 +1,24 @@
+/* Palette: http://colorhunt.co/c/9140 */
+
 .main {
   padding-left: 260px;
+}
+
+.background-reponotes {
+  background-color: #FFB400;
+}
+
+.button-primary-reponotes {
+  color: black;
+  background: #FFB400;
+  border-color: #FFB400;
+}
+
+.button-primary-reponotes:not(:disabled):focus,
+.button-primary-reponotes:not(:disabled):hover {
+  color: black;
+  background: #fcc33c;
+  border-color: #fcc33c;
 }
 
 .swatch {

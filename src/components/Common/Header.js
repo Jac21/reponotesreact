@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const styles = {
     headerTitle: {
-        color: 'white',
+        color: '#474744',
         paddingLeft: 5 + 'px'
     }
 };
@@ -16,7 +16,7 @@ class Header extends Component {
 
     render() {
         return (
-            <header className="header background-primary padding-vertical-xl">
+            <header className="header background-reponotes padding-vertical-xl">
                 <h1 style={styles.headerTitle}>
                     RepoNotes
                     {this.props.username &&
