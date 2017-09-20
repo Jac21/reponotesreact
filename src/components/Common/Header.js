@@ -15,7 +15,7 @@ class Header extends Component {
 
     render() {
         return (
-            <header className="header background-primary">
+            <header className="header background-primary padding-vertical-xl">
                 <h1 style={styles.headerTitle}>
                     RepoNotes
                     {this.props.username &&

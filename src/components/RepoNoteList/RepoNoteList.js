@@ -14,7 +14,9 @@ class RepoNoteList extends Component {
     render() {
         return (
             <div>
-                <h2>Repositories</h2>
+                {this.props.repositories ?
+                    <h2>Repositories</h2>
+                    : <div>Enter your GitHub username above to load your repositories</div>}
                 <div>
                     {
                         this.props.repositories &&

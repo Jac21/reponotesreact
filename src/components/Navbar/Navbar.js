@@ -8,11 +8,12 @@ const styles = {
         position: 'fixed',
         top: 0,
         bottom: 0,
-        width: 240 + 'px',
+        width: 260 + 'px',
         height: 100 + '%',
         overflow: 'auto',
         WebkitOverflowScrolling: 'touch',
         background: 'white',
+        borderRight: 1 + 'px solid #e5e5e8'
     },
     exportNotesButton: {
         position: 'absolute',

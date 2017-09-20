@@ -73,22 +73,22 @@ class App extends Component {
         <div className="main">
           <Header username={this.state.username} />
 
-          <form onSubmit={this.onSearch}>
-            <div className="field">
-              <input type="text" id="form-github-username"
-                placeholder={this.state.username || "Enter your GitHub Username..."}
-                ref={node => this.input = node} />
-            </div>
-            <div className="field">
-              <button type="submit" className="button button-primary"
-                onClick={this.onSearch}>Get and Show Repository Data</button>
-            </div>
-          </form>
-
-          {this.state.errorState ?
-            <ErrorAlert message="Error: User not found!" /> : null}
-
           <div className="container">
+            <form onSubmit={this.onSearch}>
+              <div className="field">
+                <input type="text" id="form-github-username"
+                  placeholder={this.state.username || "Enter your GitHub Username..."}
+                  ref={node => this.input = node} />
+              </div>
+              <div className="field">
+                <button type="submit" className="button button-primary"
+                  onClick={this.onSearch}>Get and Show Repository Data</button>
+              </div>
+            </form>
+
+            {this.state.errorState ?
+              <ErrorAlert message="Error: User not found!" /> : null}
+
             <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
           </div>
         </div>

@@ -1,11 +1,16 @@
 .main {
-  padding-left: 240px;
+  padding-left: 260px;
 }
 
 .swatch {
   display: block;
   padding: 1em;
   font-size: 1rem;
+}
+
+.padding-top-xl,
+.padding-vertical-xl {
+  padding-top: calc(4rem + .05vw);
 }
 
 @media (max-width: 1024px) {
