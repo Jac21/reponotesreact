@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 const styles = {
     headerTitle: {
-        color: 'white'
+        color: 'white',
+        paddingLeft: 5 + 'px'
     }
 };
 
