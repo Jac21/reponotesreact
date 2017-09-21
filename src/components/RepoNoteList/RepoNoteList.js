@@ -3,6 +3,14 @@ import PropTypes from 'prop-types';
 
 import RepoNote from '../RepoNote/RepoNote';
 
+const styles = {
+    infoLabel: {
+        textAlign: 'center',
+        position: 'absolute',
+        transform: 'translate(0, 50%)'
+    }
+};
+
 // Parent component for repo notes, maps data to each note component
 // utilizing the repository name and associated ID
 class RepoNoteList extends Component {
@@ -16,7 +24,10 @@ class RepoNoteList extends Component {
             <div>
                 {this.props.repositories ?
                     <h2>Repositories</h2>
-                    : <div>Enter your GitHub username above to load your repositories</div>}
+                    : <div style={styles.infoLabel}>
+                        Enter your GitHub username above to load your repositories
+                        </div>
+                }
                 <div>
                     {
                         this.props.repositories &&

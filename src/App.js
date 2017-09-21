@@ -74,9 +74,15 @@ class App extends Component {
           <Header username={this.state.username} />
 
           <div className="container">
+
+            {this.state.errorState ?
+              <ErrorAlert message="User not found! Please try entering an existing GitHub user again." />
+              : null
+            }
+
             <form onSubmit={this.onSearch}>
               <div className="field">
-                <input type="text" id="form-github-username"
+                <input type="text" id="form-github-username" aria-label="Enter your GitHub Username..."
                   placeholder={this.state.username || "Enter your GitHub Username..."}
                   ref={node => this.input = node} />
               </div>
@@ -85,9 +91,6 @@ class App extends Component {
                   onClick={this.onSearch}>Get and Show Repository Data</button>
               </div>
             </form>
-
-            {this.state.errorState ?
-              <ErrorAlert message="Error: User not found!" /> : null}
 
             <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
           </div>
