@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const styles = {
     headerTitle: {
         color: '#474744',
-        paddingLeft: 5 + 'px'
+        paddingLeft: 7 + 'px'
     }
 };
 
