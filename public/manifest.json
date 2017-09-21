@@ -8,6 +8,11 @@
       "type": "image/png"
     },
     {
+      "src": "\/assets\/favicon.png",
+      "type": "png",
+      "sizes": "512x512"
+    },
+    {
       "src": "\/assets\/android-icon-36x36.png",
       "sizes": "36x36",
       "type": "image\/png",
