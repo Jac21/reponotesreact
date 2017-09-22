@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Radium from 'radium';
+
 import NavbarList from '../NavbarList/NavbarList';
 
 const styles = {
@@ -22,6 +24,7 @@ const styles = {
     }
 };
 
+@Radium
 // Parent Navbar component
 class Navbar extends Component {
     constructor(props) {

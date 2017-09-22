@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Radium from 'radium';
+
 import RepoNote from '../RepoNote/RepoNote';
 
 const styles = {
@@ -15,6 +17,7 @@ const styles = {
 
 // Parent component for repo notes, maps data to each note component
 // utilizing the repository name and associated ID
+@Radium
 class RepoNoteList extends Component {
     constructor(props) {
         super(props);

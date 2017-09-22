@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
+import { StyleRoot } from 'radium';
+
 import Header from './components/Common/Header';
-import ErrorAlert from './components/Common/Alerts/ErrorAlert';
+import Alert from './components/Common/Alert';
 import Navbar from './components/Navbar/Navbar';
 import RepoNoteList from './components/RepoNoteList/RepoNoteList';
 // import UsernameForm from './components/UsernameForm/UsernameForm';
@@ -68,34 +70,37 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Navbar repositories={this.state.repositories} />
-        <div className="main">
-          <Header username={this.state.username} />
+      <StyleRoot>
+        <div className="App">
+          <Navbar repositories={this.state.repositories} />
+          <div className="main">
+            <Header username={this.state.username} />
 
-          <div className="container">
+            <div className="container">
 
-            {this.state.errorState ?
-              <ErrorAlert message="User not found! Please try entering an existing GitHub user again." />
-              : null
-            }
+              {this.state.errorState ?
+                <Alert kind="error"
+                  message="User not found! Please try entering an existing GitHub user again." />
+                : null
+              }
 
-            <form onSubmit={this.onSearch}>
-              <div className="field">
-                <input type="text" id="form-github-username" aria-label="Enter your GitHub Username..."
-                  placeholder={this.state.username || "Enter your GitHub Username..."}
-                  ref={node => this.input = node} />
-              </div>
-              <div className="field">
-                <button type="submit" className="button button-primary button-primary-reponotes"
-                  onClick={this.onSearch}>Get and Show Repository Data</button>
-              </div>
-            </form>
+              <form onSubmit={this.onSearch}>
+                <div className="field">
+                  <input type="text" id="form-github-username" aria-label="Enter your GitHub Username..."
+                    placeholder={this.state.username || "Enter your GitHub Username..."}
+                    ref={node => this.input = node} />
+                </div>
+                <div className="field">
+                  <button type="submit" className="button button-primary button-primary-reponotes"
+                    onClick={this.onSearch}>Get and Show Repository Data</button>
+                </div>
+              </form>
 
-            <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
+              <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
+            </div>
           </div>
         </div>
-      </div>
+      </StyleRoot>
     );
   }
 }

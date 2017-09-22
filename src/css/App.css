@@ -26,12 +26,6 @@ textarea:not(:disabled):focus {
   border-color: #fcc33c;
 }
 
-.swatch {
-  display: block;
-  padding: 1em;
-  font-size: 1rem;
-}
-
 .padding-top-xl,
 .padding-vertical-xl {
   padding-top: calc(4rem + .05vw);

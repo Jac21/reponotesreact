@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Radium from 'radium';
+
+import Message from '../Common/Message';
+
 const styles = {
     repoNoteLabel: {
         fontSize: 1.175 + "rem"
@@ -8,11 +12,14 @@ const styles = {
 };
 
 // Singular repository note component
+@Radium
 class RepoNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: localStorage.getItem(this.props.username + this.props.repositoryName) || '',
+            note: localStorage.getItem(this.props.username + this.props.repositoryName)
+            || '',
+            saveDisabled: true,
             exportDisabled: true,
             showSuccessMessage: false,
             exportSuccessMessage: false
@@ -28,6 +35,7 @@ class RepoNote extends Component {
 
     // Handles textarea change event, saves value to state variable
     handleChange = (e) => {
+        this.setState({ saveDisabled: false });
         this.setState({ note: e.target.value });
     }
 
@@ -80,14 +88,16 @@ class RepoNote extends Component {
                     </textarea>
 
                     {this.state.showSuccessMessage ?
-                        <p className="form-message success">Successfully saved!</p> : null}
+                        <Message kind="primary" text="Successfully saved!" /> : null}
 
                     {this.state.exportSuccessMessage ?
-                        <p className="form-message success">Successfully exported!</p> : null}
+                        <Message kind="primary" text="Successfully exported!" /> : null}
 
                     <div className="button-group">
                         <button id={`${this.props.username}${this.props.repositoryName}SaveButton`}
-                            className="button" onClick={this.saveNote}>Save</button>
+                            className="button"
+                            onClick={this.saveNote}
+                            disabled={this.state.saveDisabled}>Save</button>
                         <button id={`${this.props.username}${this.props.repositoryName}ExportButton`}
                             className="button"
                             onClick={this.exportNote}

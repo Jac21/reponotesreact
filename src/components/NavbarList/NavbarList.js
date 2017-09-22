@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Radium from 'radium';
+
 const styles = {
     repoListItem: {
         margin: 0,
@@ -17,6 +19,7 @@ const styles = {
 }
 
 // Singular list component for Navbar, contains list of repositories for current user
+@Radium
 class NavbarList extends Component {
     constructor(props) {
         super(props);
