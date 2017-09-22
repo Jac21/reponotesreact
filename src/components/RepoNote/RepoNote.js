@@ -67,32 +67,35 @@ class RepoNote extends Component {
 
     render() {
         return (
-            <div className="field">
-                <label htmlFor={`${this.props.username}${this.props.repositoryName}InputLabel`}
-                    style={styles.repoNoteLabel}>
-                    {this.props.repositoryName}
-                </label>
-                <textarea id={`${this.props.username}${this.props.repositoryName}InputTextarea`}
-                    value={this.state.note}
-                    onChange={this.handleChange} cols="30" rows="5"
-                    placeholder="Enter notes here...">
-                </textarea>
+            <section className="repo-note-container">
+                <div className="field">
+                    <label htmlFor={`${this.props.username}${this.props.repositoryName}InputLabel`}
+                        style={styles.repoNoteLabel}>
+                        {this.props.repositoryName}
+                    </label>
+                    <textarea id={`${this.props.username}${this.props.repositoryName}InputTextarea`}
+                        value={this.state.note}
+                        onChange={this.handleChange} cols="30" rows="5"
+                        placeholder="Enter notes here...">
+                    </textarea>
 
-                {this.state.showSuccessMessage ?
-                    <p className="form-message success">Successfully saved!</p> : null}
+                    {this.state.showSuccessMessage ?
+                        <p className="form-message success">Successfully saved!</p> : null}
 
-                {this.state.exportSuccessMessage ?
-                    <p className="form-message success">Successfully exported!</p> : null}
+                    {this.state.exportSuccessMessage ?
+                        <p className="form-message success">Successfully exported!</p> : null}
 
-                <div className="button-group">
-                    <button id={`${this.props.username}${this.props.repositoryName}SaveButton`}
-                        className="button" onClick={this.saveNote}>Save</button>
-                    <button id={`${this.props.username}${this.props.repositoryName}ExportButton`}
-                        className="button"
-                        onClick={this.exportNote}
-                        disabled={this.state.exportDisabled}>Export</button>
+                    <div className="button-group">
+                        <button id={`${this.props.username}${this.props.repositoryName}SaveButton`}
+                            className="button" onClick={this.saveNote}>Save</button>
+                        <button id={`${this.props.username}${this.props.repositoryName}ExportButton`}
+                            className="button"
+                            onClick={this.exportNote}
+                            disabled={this.state.exportDisabled}>Export</button>
+                    </div>
                 </div>
-            </div>
+                <div className="section-divider"></div>
+            </section>
         );
     }
 }
