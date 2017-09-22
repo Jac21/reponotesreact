@@ -21,6 +21,11 @@
   border-color: #fcc33c;
 }
 
+input:not(:disabled):focus,
+textarea:not(:disabled):focus {
+  border-color: #fcc33c;
+}
+
 .swatch {
   display: block;
   padding: 1em;

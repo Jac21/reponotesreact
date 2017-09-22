@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import RepoNote from '../RepoNote/RepoNote';
 
 const styles = {
+    header: {
+        margin: .5 + 'em auto' 
+    },
     infoLabel: {
-        textAlign: 'center',
         position: 'absolute',
         transform: 'translate(0, 50%)'
     }
@@ -23,7 +25,7 @@ class RepoNoteList extends Component {
         return (
             <div>
                 {this.props.repositories ?
-                    <h2>Repositories</h2>
+                    <h2 style={styles.header}>Repositories</h2>
                     : <div style={styles.infoLabel}>
                         Enter your GitHub username above to load your repositories
                         </div>
