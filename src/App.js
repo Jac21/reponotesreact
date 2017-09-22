@@ -92,7 +92,7 @@ class App extends Component {
                 </div>
                 <div className="field">
                   <button type="submit" className="button button-primary button-primary-reponotes"
-                    onClick={this.onSearch}>Get and Show Repository Data</button>
+                    onClick={this.onSearch}>Get and Show Your Repositories</button>
                 </div>
               </form>
 

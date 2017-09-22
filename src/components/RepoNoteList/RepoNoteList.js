@@ -30,7 +30,7 @@ class RepoNoteList extends Component {
                 {this.props.repositories ?
                     <h2 style={styles.header}>Repositories</h2>
                     : <div style={styles.infoLabel}>
-                        Enter your GitHub username above to load your repositories
+                        Enter your GitHub username above to load your repositories and start taking notes!
                         </div>
                 }
                 <div>
