@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Radium from 'radium';
+
 const styles = {
     headerTitle: {
         color: '#474744',
@@ -8,6 +10,7 @@ const styles = {
     }
 };
 
+@Radium
 class Header extends Component {
     constructor(props) {
         super(props);
