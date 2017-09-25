@@ -30,25 +30,43 @@ class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            input: '',
             disabled: true
         };
+    }
+
+    // Enables Navbar elements if local state exists
+    componentDidMount() {
+        if (this.props.repositories) {
+            this.setState({ disabled: false });
+        }
+    }
+
+    // Handles input change event, saves value to state variable
+    handleChange = (e) => {
+        this.setState({ input: e.target.value });
     }
 
     render() {
         return (
             <aside className="sidebar" style={styles.sidebar}>
-                <form id="search-container" className="search">
+                <form id="search-container" className="search" disabled={this.state.disabled}>
                     <input id="search-input" className="search-input"
-                        type="search" placeholder="Repository name..." />
+                        type="search" placeholder="Repository name..."
+                        value={this.state.input} onChange={this.handleChange} />
                     <ul id="search-results" className="search-results"></ul>
                 </form>
                 <nav className="navigation">
                     <ul>
                         {
                             this.props.repositories &&
-                            this.props.repositories.map(item =>
-                                <NavbarList key={item.id}
-                                    repositoryName={item.name} repositoryLink={item.html_url} />)
+                            this.props.repositories
+                                .filter(d => this.state.input === ''
+                                    || d.name.includes(this.state.input))
+                                .map(item =>
+                                    <NavbarList key={item.id}
+                                        repositoryName={item.name}
+                                        repositoryLink={item.html_url} />)
                         }
                     </ul>
                 </nav>
