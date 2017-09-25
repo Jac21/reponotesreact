@@ -30,16 +30,8 @@ class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            input: '',
-            disabled: true
+            input: ''
         };
-    }
-
-    // Enables Navbar elements if local state exists
-    componentDidMount() {
-        if (this.props.repositories) {
-            this.setState({ disabled: false });
-        }
     }
 
     // Handles input change event, saves value to state variable
@@ -50,12 +42,9 @@ class Navbar extends Component {
     render() {
         return (
             <aside className="sidebar" style={styles.sidebar}>
-                <form id="search-container" className="search" disabled={this.state.disabled}>
-                    <input id="search-input" className="search-input"
-                        type="search" placeholder="Repository name..."
-                        value={this.state.input} onChange={this.handleChange} />
-                    <ul id="search-results" className="search-results"></ul>
-                </form>
+                <input id="search-input" className="search-input"
+                    type="search" placeholder="Repository name..."
+                    value={this.state.input} onChange={this.handleChange} />
                 <nav className="navigation">
                     <ul>
                         {
