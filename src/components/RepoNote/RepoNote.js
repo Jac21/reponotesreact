@@ -76,7 +76,8 @@ class RepoNote extends Component {
     render() {
         return (
             <section className="repo-note-container">
-                <div className="field">
+                <div className="field"
+                    id={`${this.props.repositoryName}Field`}>
                     <label htmlFor={`${this.props.username}${this.props.repositoryName}InputLabel`}
                         style={styles.repoNoteLabel}>
                         {this.props.repositoryName}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Radium from 'radium';
+import scrollToElement from 'scroll-to-element';
 
 const styles = {
     repoListItem: {
@@ -29,16 +30,19 @@ class NavbarList extends Component {
     render() {
         return (
             <li style={styles.repoListItem}>
-                <a href={this.props.repoLink} target="_blank" rel="noopener noreferrer"
-                    style={styles.repoListLink}>{this.props.repoName}</a>
-            </li>
+                <a onClick={() => scrollToElement(`#${this.props.repositoryName}Field`, {
+                    offset: 0,
+                    duration: 500
+                })}
+                    style={styles.repoListLink}>{this.props.repositoryName}</a>
+            </li >
         );
     }
 }
 
 NavbarList.propTypes = {
-    repoListLink: PropTypes.string,
-    repoName: PropTypes.string
+    repositoryLink: PropTypes.string,
+    repositoryName: PropTypes.string
 }
 
 export default NavbarList;

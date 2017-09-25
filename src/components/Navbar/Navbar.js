@@ -48,7 +48,7 @@ class Navbar extends Component {
                             this.props.repositories &&
                             this.props.repositories.map(item =>
                                 <NavbarList key={item.id}
-                                    repoName={item.name} repoLink={item.html_url} />)
+                                    repositoryName={item.name} repositoryLink={item.html_url} />)
                         }
                     </ul>
                 </nav>
