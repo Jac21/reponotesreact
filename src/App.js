@@ -6,7 +6,6 @@ import Header from './components/Common/Header';
 import Alert from './components/Common/Alert';
 import Navbar from './components/Navbar/Navbar';
 import RepoNoteList from './components/RepoNoteList/RepoNoteList';
-// import UsernameForm from './components/UsernameForm/UsernameForm';
 
 import './css/App.css';
 
