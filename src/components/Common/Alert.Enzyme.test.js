@@ -1,15 +1,15 @@
 import React from 'react';
 
-import ErrorAlert from './ErrorAlert';
+import Alert from './Alert';
 
 import { shallow, mount, render } from 'enzyme';
 import TestUtils from 'react-addons-test-utils';
 
 var setup = function () {
-    return shallow(<ErrorAlert />);
+    return shallow(<Alert />);
 };
 
-describe('<ErrorAlert />', () => {
+describe('<Alert />', () => {
     it('should render a parent <div> element', () => {
         const wrapper = setup();
         expect(wrapper.find('div'));
