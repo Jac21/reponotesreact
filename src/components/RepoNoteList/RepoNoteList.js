@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Radium from 'radium';
+import { css } from 'glamor';
 
 import RepoNote from '../RepoNote/RepoNote';
 
-const styles = {
-    header: {
-        margin: .5 + 'em auto' 
-    },
-    infoLabel: {
-        position: 'absolute',
-        transform: 'translate(0, 50%)'
-    }
-};
+let header = css({
+    margin: .5 + 'em auto'
+})
+
+let infoLabel = css({
+    position: 'absolute',
+    transform: 'translate(0, 50%)'
+});
 
 // Parent component for repo notes, maps data to each note component
 // utilizing the repository name and associated ID
-@Radium
 class RepoNoteList extends Component {
     constructor(props) {
         super(props);
@@ -28,8 +26,8 @@ class RepoNoteList extends Component {
         return (
             <div>
                 {this.props.repositories ?
-                    <h2 style={styles.header}>Repositories</h2>
-                    : <div style={styles.infoLabel}>
+                    <h2 {...header}>Repositories</h2>
+                    : <div {...infoLabel}>
                         Enter your GitHub username above to load your repositories and start taking notes!
                         </div>
                 }

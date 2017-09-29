@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Radium from 'radium';
+import { css } from 'glamor';
 
-const fadeInAndOutframes = Radium.keyframes({
+const fadeInAndOut = css.keyframes('fadeInAndOut', {
     '0%': { opacity: '0' },
     '50%': { opacity: '1' },
     '100%': { opacity: '0' }
-}, 'fadeInAndOut');
+});
 
-const styles = {
-    transition: {
-        // Use a placeholder animation name in `animation`
-        animation: 'x 3s ease 0s infinite',
-        // Assign the result of `keyframes` to `animationName`
-        animationName: fadeInAndOutframes
-    }
-}
-
-@Radium
 class Message extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +17,10 @@ class Message extends Component {
 
     render() {
         return (
-            <div style={styles.transition} className="form-message success">
+            <div className="form-message success"
+                {...css({
+                    animation: `${fadeInAndOut} 3s ease 0s infinite`
+                }) }>
                 {this.props.text}
             </div>
         );

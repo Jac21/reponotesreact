@@ -1,30 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Radium from 'radium';
+import { css } from 'glamor';
 
 import NavbarList from '../NavbarList/NavbarList';
 
-const styles = {
-    sidebar: {
-        position: 'fixed',
-        top: 0,
-        bottom: 0,
-        width: 260 + 'px',
-        height: 100 + '%',
-        overflow: 'auto',
-        WebkitOverflowScrolling: 'touch',
-        background: 'white',
-        borderRight: 1 + 'px solid #e5e5e8'
-    },
-    exportNotesButton: {
-        position: 'absolute',
-        bottom: 0,
-        width: 100 + '%',
-    }
-};
+let navbar = css({
+    position: 'fixed',
+    top: 0,
+    bottom: 0,
+    width: 260 + 'px',
+    height: 100 + '%',
+    overflow: 'auto',
+    WebkitOverflowScrolling: 'touch',
+    background: 'white',
+    borderRight: 1 + 'px solid #e5e5e8'
+});
 
-@Radium
 // Parent Navbar component
 class Navbar extends Component {
     constructor(props) {
@@ -41,7 +33,7 @@ class Navbar extends Component {
 
     render() {
         return (
-            <aside className="sidebar" style={styles.sidebar}>
+            <aside {...navbar} className="sidebar">
                 <input id="search-input" className="search-input"
                     type="search" placeholder="Repository name..."
                     value={this.state.input} onChange={this.handleChange} />
@@ -59,8 +51,6 @@ class Navbar extends Component {
                         }
                     </ul>
                 </nav>
-                {/* <button className="button" disabled={this.state.disabled}
-                    style={styles.exportNotesButton}>Export Notes</button> */}
             </aside>
         );
     }
