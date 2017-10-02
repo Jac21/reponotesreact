@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Radium from 'radium';
+import { css } from 'glamor';
 
-const styles = {
-    swatch: {
-        display: 'block',
-        padding: 1 + 'em',
-        fontSize: 1 + 'rem',
-        color: '#fff'
-    },
-    error: {
-        backgroundColor: '#d91e18'
-    }
-}
+let swatch = css({
+    display: 'block',
+    padding: 1 + 'em',
+    fontSize: 1 + 'rem',
+    color: '#fff'
+});
 
-@Radium
+let error = css({
+    backgroundColor: '#d91e18'
+})
+
 class Alert extends Component {
     constructor(props) {
         super(props);
@@ -24,11 +22,7 @@ class Alert extends Component {
 
     render() {
         return (
-            <div
-                style={[
-                    styles.swatch,
-                    styles[this.props.kind]
-                ]}>
+            <div {...css(swatch, error) }>
                 {this.props.message}
             </div>
         );

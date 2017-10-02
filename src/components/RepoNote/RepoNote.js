@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Radium from 'radium';
+import { css } from 'glamor';
 
 import Message from '../Common/Message';
 
-const styles = {
-    repoNoteLabel: {
-        fontSize: 1.175 + "rem"
-    }
-};
+let repoNoteLabel = css({
+    fontSize: 1.175 + "rem"
+});
 
 // Singular repository note component
-@Radium
 class RepoNote extends Component {
     constructor(props) {
         super(props);
@@ -79,7 +76,7 @@ class RepoNote extends Component {
                 <div className="field"
                     id={`${this.props.repositoryName}Field`}>
                     <label htmlFor={`${this.props.username}${this.props.repositoryName}InputLabel`}
-                        style={styles.repoNoteLabel}>
+                        {...repoNoteLabel}>
                         {this.props.repositoryName}
                     </label>
                     <textarea id={`${this.props.username}${this.props.repositoryName}InputTextarea`}

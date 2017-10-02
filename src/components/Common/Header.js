@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Radium from 'radium';
+import { css } from 'glamor';
 
-const styles = {
-    title: {
-        color: '#474744',
-        paddingLeft: 7 + 'px'
-    }
-}
+let header = css({
+    'backgroundColor': '#FFB400'
+});
 
-@Radium
+let headerText = css({
+    color: '#474744',
+    paddingLeft: '7px'
+});
+
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -19,8 +20,8 @@ class Header extends Component {
 
     render() {
         return (
-            <header className="header background-reponotes padding-vertical-xl">
-                <h1 style={styles.title}>
+            <header className="header padding-vertical-xl" {...header}>
+                <h1 {...headerText}>
                     RepoNotes
                     <span>
                         {this.props.username &&
