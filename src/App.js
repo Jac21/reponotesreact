@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 
+import { css } from 'glamor';
+
 import Header from './components/Common/Header';
 import Alert from './components/Common/Alert';
 import Navbar from './components/Navbar/Navbar';
 import RepoNoteList from './components/RepoNoteList/RepoNoteList';
 
 import './css/App.css';
+
+let formGroup = css({
+  marginTop: 1.3 + 'em'
+})
 
 class App extends Component {
   constructor(props) {
@@ -80,15 +86,13 @@ class App extends Component {
               : null
             }
 
-            <form onSubmit={this.onSearch}>
-              <div className="field">
+            <form onSubmit={this.onSearch} {...formGroup}>
+              <div className="input-group">
                 <input type="text" id="form-github-username" aria-label="Enter your GitHub Username..."
-                  placeholder={this.state.username || "Enter your GitHub Username..."}
+                  placeholder={this.state.username || "Enter GitHub Username..."}
                   ref={node => this.input = node} />
-              </div>
-              <div className="field">
                 <button type="submit" className="button button-primary button-primary-reponotes"
-                  onClick={this.onSearch}>Get and Show Your Repositories</button>
+                  onClick={this.onSearch}>Show Your Repos</button>
               </div>
             </form>
 

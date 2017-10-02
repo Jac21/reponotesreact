@@ -7,9 +7,16 @@ let header = css({
     'backgroundColor': '#FFB400'
 });
 
+let headerWrapper = css({
+    paddingLeft: 7 + 'px'
+});
+
 let headerText = css({
-    color: '#474744',
-    paddingLeft: '7px'
+    color: '#474744'
+});
+
+let subHeaderText = css({
+    fontSize: 1.1 + 'rem'
 });
 
 class Header extends Component {
@@ -21,13 +28,18 @@ class Header extends Component {
     render() {
         return (
             <header className="header padding-vertical-xl" {...header}>
-                <h1 {...headerText}>
-                    RepoNotes
-                    <span>
-                        {this.props.username &&
-                            ` for ${this.props.username}`}
-                    </span>
-                </h1>
+                <div {...headerWrapper}>
+                    <h1 {...headerText}>
+                        RepoNotes
+                        <span>
+                            {this.props.username &&
+                                ` for ${this.props.username}`}
+                        </span>
+                    </h1>
+                    <p {...css(headerText, subHeaderText) }>
+                        Offline-capable, locally persisted ideation assister for your GitHub repositories
+                    </p>
+                </div>
             </header>
         );
     }
