@@ -10,7 +10,7 @@ import RepoNoteList from './components/RepoNoteList/RepoNoteList';
 import './css/App.css';
 
 let formGroup = css({
-  marginTop: 1.3 + 'em'
+  marginTop: 1 + 'em'
 })
 
 class App extends Component {
@@ -89,7 +89,7 @@ class App extends Component {
             <form onSubmit={this.onSearch} {...formGroup}>
               <div className="input-group">
                 <input type="text" id="form-github-username" aria-label="Enter your GitHub Username..."
-                  placeholder={this.state.username || "Enter GitHub Username..."}
+                  placeholder={this.state.username || "GitHub Username..."}
                   ref={node => this.input = node} />
                 <button type="submit" className="button button-primary button-primary-reponotes"
                   onClick={this.onSearch}>Show Your Repos</button>
