@@ -9,13 +9,17 @@ let repoListItem = css({
     padding: 0,
     fontWeight: 500,
     fontSize: 1 + 'rem',
-    lineHeight: 1.35,
+    lineHeight: 1.35
 });
 
 let repoListLink = css({
     display: 'block',
     padding: '.5em 1em',
     textDecoration: 'none',
+});
+
+let repoListLinkText = css({
+    cursor: 'pointer'
 });
 
 // Singular list component for Navbar, contains list of repositories for current user
@@ -32,7 +36,11 @@ class NavbarList extends Component {
                     offset: 0,
                     duration: 500
                 })}
-                    {...repoListLink}>{this.props.repositoryName}</a>
+                    {...repoListLink}>
+                    <span {...repoListLinkText}>
+                        {this.props.repositoryName}
+                    </span>
+                    </a>
             </li >
         );
     }

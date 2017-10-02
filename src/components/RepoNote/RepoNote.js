@@ -9,6 +9,13 @@ let repoNoteLabel = css({
     fontSize: 1.175 + "rem"
 });
 
+let sectionDivider = css ({
+  height: 1 + 'px',
+  maxWidth: 100 + 'vw',
+  margin: '0 auto 1em auto',
+  background: '#FFB400'
+});
+
 // Singular repository note component
 class RepoNote extends Component {
     constructor(props) {
@@ -102,7 +109,7 @@ class RepoNote extends Component {
                             disabled={this.state.exportDisabled}>Export</button>
                     </div>
                 </div>
-                <div className="section-divider"></div>
+                <div {...sectionDivider}></div>
             </section>
         );
     }
