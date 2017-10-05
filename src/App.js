@@ -74,7 +74,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar repositories={this.state.repositories} />
+        <Navbar username={this.state.username} repositories={this.state.repositories} />
         <div className="main">
           <Header username={this.state.username} />
 
@@ -89,8 +89,7 @@ class App extends Component {
             <form onSubmit={this.onSearch} {...formGroup}>
               <div className="input-group">
                 <input type="text" id="form-github-username" aria-label="Enter your GitHub Username..."
-                  placeholder={this.state.username || "GitHub Username..."}
-                  ref={node => this.input = node} />
+                  placeholder={this.state.username || "GitHub Username..."} />
                 <button type="submit" className="button button-primary button-primary-reponotes"
                   onClick={this.onSearch}>Show Your Repos</button>
               </div>

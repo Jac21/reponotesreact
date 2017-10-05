@@ -46,6 +46,7 @@ class Navbar extends Component {
                                     || d.name.includes(this.state.input))
                                 .map(item =>
                                     <NavbarList key={item.id}
+                                        username={this.props.username}
                                         repositoryName={item.name}
                                         repositoryLink={item.html_url} />)
                         }
@@ -57,6 +58,7 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
+    username: PropTypes.string,
     repositories: PropTypes.array
 }
 

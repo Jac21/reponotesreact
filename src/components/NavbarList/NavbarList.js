@@ -26,13 +26,24 @@ let repoListLinkText = css({
 class NavbarList extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            note: localStorage.getItem(this.props.username + this.props.repositoryName)
+            || '',
+        };
+    }
+
+    // Change styling of list item link if note exists for that particular repo
+    componentDidMount() {
+        if (this.state.note !== '') {
+            this.refs.listItemLink.style.color = '#FFB400';
+        }
     }
 
     render() {
         return (
             <li {...repoListItem}>
-                <a onClick={() => scrollToElement(`#${this.props.repositoryName}Field`, {
+                <a ref="listItemLink"
+                onClick={() => scrollToElement(`#${this.props.repositoryName}Field`, {
                     offset: 0,
                     duration: 500
                 })}
@@ -47,6 +58,7 @@ class NavbarList extends Component {
 }
 
 NavbarList.propTypes = {
+    username: PropTypes.string,
     repositoryLink: PropTypes.string,
     repositoryName: PropTypes.string
 }

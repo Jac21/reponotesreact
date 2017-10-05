@@ -8,7 +8,8 @@ let header = css({
 });
 
 let headerWrapper = css({
-    paddingLeft: 7 + 'px'
+    paddingLeft: 'calc(1rem + .5vw)',
+    paddingRight: 'calc(1rem + .5vw)'
 });
 
 let headerText = css({
@@ -16,7 +17,8 @@ let headerText = css({
 });
 
 let subHeaderText = css({
-    fontSize: 1.1 + 'rem'
+    fontSize: '1.1rem',
+    marginTop: '-1em'
 });
 
 class Header extends Component {
