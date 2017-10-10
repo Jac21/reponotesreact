@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import axios from 'axios';
 import { css } from 'glamor';
 
 import Header from './components/Common/Header';
@@ -52,12 +53,17 @@ class App extends Component {
       return;
     }
 
-    fetch(`https://api.github.com/users/${value}/repos`)
-      .catch(error => {
+    const instance = axios.create({
+      baseURL: 'https://api.github.com/',
+      timeout: 3000,
+      responseType: 'json'
+    });
+
+    instance.get(`/users/${value}/repos`)
+      .catch(function (error) {
         return Promise.reject(error);
       })
-      .then(response => response.json())
-      .then(result => this.onSetResult(result, value));
+      .then(result => this.onSetResult(result.data, value));
   }
 
   onSetResult = (result, key) => {
