@@ -3,35 +3,31 @@ import PropTypes from 'prop-types';
 
 import { css } from 'glamor';
 
-let swatch = css({
-    display: 'block',
-    padding: 1 + 'em',
-    fontSize: 1 + 'rem',
-    color: '#fff'
+const swatch = css({
+  display: 'block',
+  padding: `${1}em`,
+  fontSize: `${1}rem`,
+  color: '#fff',
 });
 
-let error = css({
-    backgroundColor: '#d91e18'
-})
+const error = css({
+  backgroundColor: '#d91e18',
+});
 
 class Alert extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-    render() {
-        return (
-            <div {...css(swatch, error) }>
-                {this.props.message}
-            </div>
-        );
-    }
+  render() {
+    return <div {...css(swatch, error)}>{this.props.message}</div>;
+  }
 }
 
 Alert.propTypes = {
-    kind: PropTypes.oneOf(['primary', 'warning', 'error']).isRequired,
-    message: PropTypes.string
-}
+  kind: PropTypes.oneOf(['primary', 'warning', 'error']).isRequired,
+  message: PropTypes.string,
+};
 
 export default Alert;

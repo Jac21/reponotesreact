@@ -10,9 +10,9 @@ import RepoNoteList from './components/RepoNoteList/RepoNoteList';
 
 import './css/App.css';
 
-let formGroup = css({
-  marginTop: 1 + 'em'
-})
+const formGroup = css({
+  marginTop: `${1}em`,
+});
 
 class App extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class App extends Component {
     this.state = {
       username: localStorage.getItem('LastHandle'),
       repositories: null,
-      errorState: false
+      errorState: false,
     };
   }
 
@@ -28,7 +28,7 @@ class App extends Component {
   // local storage cache when component mounts, set state accordingly
   componentDidMount() {
     if (this.state.username) {
-      var cachedRepositories = localStorage.getItem(this.state.username);
+      const cachedRepositories = localStorage.getItem(this.state.username);
       this.setState({ repositories: JSON.parse(cachedRepositories) });
     }
   }
@@ -42,10 +42,9 @@ class App extends Component {
 
     if (value === '') {
       return;
-    } else {
-      this.setState({ username: value });
-      localStorage.setItem('LastHandle', value);
     }
+    this.setState({ username: value });
+    localStorage.setItem('LastHandle', value);
 
     const cachedHits = localStorage.getItem(value);
     if (cachedHits) {
@@ -56,18 +55,17 @@ class App extends Component {
     const instance = axios.create({
       baseURL: 'https://api.github.com/',
       timeout: 3000,
-      responseType: 'json'
+      responseType: 'json',
     });
 
-    instance.get(`/users/${value}/repos`)
-      .catch(function (error) {
-        return Promise.reject(error);
-      })
+    instance
+      .get(`/users/${value}/repos`)
+      .catch(error => Promise.reject(error))
       .then(result => this.onSetResult(result.data, value));
-  }
+  };
 
   onSetResult = (result, key) => {
-    if (result.message === "Not Found") {
+    if (result.message === 'Not Found') {
       localStorage.removeItem('LastHandle');
       this.setState({ errorState: true });
     } else {
@@ -75,7 +73,7 @@ class App extends Component {
       this.setState({ errorState: false });
       this.setState({ repositories: result });
     }
-  }
+  };
 
   render() {
     return (
@@ -85,20 +83,29 @@ class App extends Component {
           <Header username={this.state.username} />
 
           <div className="container">
-
-            {this.state.errorState ?
-              <Alert kind="error"
-                message="User not found! Please try entering an existing GitHub user again." />
-              : null
-            }
+            {this.state.errorState ? (
+              <Alert
+                kind="error"
+                message="User not found! Please try entering an existing GitHub user again."
+              />
+            ) : null}
 
             <form onSubmit={this.onSearch} {...formGroup}>
               <div className="input-group">
-                <input type="text" id="form-github-username" aria-label="Enter your GitHub Username..."
-                  placeholder={this.state.username || "GitHub Username..."}
-                  ref={node => this.input = node} />
-                <button type="submit" className="button button-primary button-primary-reponotes"
-                  onClick={this.onSearch}>Show Your Repos</button>
+                <input
+                  type="text"
+                  id="form-github-username"
+                  aria-label="Enter your GitHub Username..."
+                  placeholder={this.state.username || 'GitHub Username...'}
+                  ref={node => (this.input = node)}
+                />
+                <button
+                  type="submit"
+                  className="button button-primary button-primary-reponotes"
+                  onClick={this.onSearch}
+                >
+                  Show Your Repos
+                </button>
               </div>
             </form>
 

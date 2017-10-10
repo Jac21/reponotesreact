@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import Alert from './Alert';
+import Alert from "./Alert";
 
-import { shallow, mount, render } from 'enzyme';
-import TestUtils from 'react-addons-test-utils';
+import { shallow, mount, render } from "enzyme";
+import TestUtils from "react-addons-test-utils";
 
-var setup = function () {
-    return shallow(<Alert />);
+var setup = function() {
+  return shallow(<Alert />);
 };
 
-describe('<Alert />', () => {
-    it('should render a parent <div> element', () => {
-        const wrapper = setup();
-        expect(wrapper.find('div'));
-    });
+describe("<Alert />", () => {
+  it("should render a parent <div> element", () => {
+    const wrapper = setup();
+    expect(wrapper.find("div"));
+  });
 });
