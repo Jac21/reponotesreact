@@ -1,17 +1,18 @@
-import React from "react";
+/* eslint-disable */
+import React from 'react';
 
-import Alert from "./Alert";
+import Alert from './Alert';
 
-import { shallow, mount, render } from "enzyme";
-import TestUtils from "react-addons-test-utils";
+import { shallow, mount, render } from 'enzyme';
+import TestUtils from 'react-addons-test-utils';
 
-var setup = function() {
+const setup = function() {
   return shallow(<Alert />);
 };
 
-describe("<Alert />", () => {
-  it("should render a parent <div> element", () => {
+describe('<Alert />', () => {
+  it('should render a parent <div> element', () => {
     const wrapper = setup();
-    expect(wrapper.find("div"));
+    expect(wrapper.find('div'));
   });
 });

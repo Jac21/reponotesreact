@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import axios from 'axios';
 import { css } from 'glamor';
 
 import Header from './components/Common/Header';
@@ -11,7 +10,7 @@ import RepoNoteList from './components/RepoNoteList/RepoNoteList';
 import './css/App.css';
 
 const formGroup = css({
-  marginTop: `${1}em`,
+  marginTop: `${1}em`
 });
 
 class App extends Component {
@@ -20,7 +19,7 @@ class App extends Component {
     this.state = {
       username: localStorage.getItem('LastHandle'),
       repositories: null,
-      errorState: false,
+      errorState: false
     };
   }
 
@@ -35,7 +34,7 @@ class App extends Component {
 
   // Set local storage key for user, fetch GitHub repository data,
   // and set local storage cache on retreived JSON
-  onSearch = (e) => {
+  onSearch = e => {
     e.preventDefault();
 
     const { value } = this.input;
@@ -44,7 +43,6 @@ class App extends Component {
       return;
     }
     this.setState({ username: value });
-    localStorage.setItem('LastHandle', value);
 
     const cachedHits = localStorage.getItem(value);
     if (cachedHits) {
@@ -52,23 +50,19 @@ class App extends Component {
       return;
     }
 
-    const instance = axios.create({
-      baseURL: 'https://api.github.com/',
-      timeout: 3000,
-      responseType: 'json',
-    });
-
-    instance
-      .get(`/users/${value}/repos`)
-      .catch(error => Promise.reject(error))
-      .then(result => this.onSetResult(result.data, value));
+    fetch(`https://api.github.com/users/${value}/repos`)
+      .catch(error => {
+        return Promise.reject(error);
+      })
+      .then(response => response.json())
+      .then(result => this.onSetResult(result, value));
   };
 
   onSetResult = (result, key) => {
     if (result.message === 'Not Found') {
-      localStorage.removeItem('LastHandle');
       this.setState({ errorState: true });
     } else {
+      localStorage.setItem('LastHandle', this.state.username);
       localStorage.setItem(key, JSON.stringify(result));
       this.setState({ errorState: false });
       this.setState({ repositories: result });
@@ -78,7 +72,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar username={this.state.username} repositories={this.state.repositories} />
+        <Navbar
+          username={this.state.username}
+          repositories={this.state.repositories}
+        />
         <div className="main">
           <Header username={this.state.username} />
 
@@ -109,7 +106,10 @@ class App extends Component {
               </div>
             </form>
 
-            <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
+            <RepoNoteList
+              repositories={this.state.repositories}
+              username={this.state.username}
+            />
           </div>
         </div>
       </div>

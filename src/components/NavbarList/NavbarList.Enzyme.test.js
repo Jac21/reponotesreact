@@ -1,17 +1,18 @@
-import React from "react";
+/* eslint-disable */
+import React from 'react';
 
-import NavbarList from "./NavbarList";
+import NavbarList from './NavbarList';
 
-import { shallow, mount, render } from "enzyme";
-import TestUtils from "react-addons-test-utils";
+import { shallow, mount, render } from 'enzyme';
+import TestUtils from 'react-addons-test-utils';
 
-var setup = function() {
+const setup = function() {
   return shallow(<NavbarList />);
 };
 
-describe("<NavbarList />", () => {
-  it("should render a parent <ul> element", () => {
+describe('<NavbarList />', () => {
+  it('should render a parent <ul> element', () => {
     const wrapper = setup();
-    expect(wrapper.find("ul"));
+    expect(wrapper.find('ul'));
   });
 });

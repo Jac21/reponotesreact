@@ -1,22 +1,23 @@
-import React from "react";
+/* eslint-disable */
+import React from 'react';
 
-import RepoNote from "./RepoNote";
+import RepoNote from './RepoNote';
 
-import { shallow, mount, render } from "enzyme";
-import TestUtils from "react-addons-test-utils";
+import { shallow, mount, render } from 'enzyme';
+import TestUtils from 'react-addons-test-utils';
 
-var setup = function() {
+const setup = function() {
   return shallow(<RepoNote />);
 };
 
-describe("<RepoNote />", () => {
-  it("should render a parent <div> element", () => {
+describe('<RepoNote />', () => {
+  it('should render a parent <div> element', () => {
     const wrapper = setup();
-    expect(wrapper.find("div"));
+    expect(wrapper.find('div'));
   });
 
-  it("should render a single Save <button> element", () => {
+  it('should render a single Save <button> element', () => {
     const wrapper = setup();
-    expect(wrapper.find("button"));
+    expect(wrapper.find('button'));
   });
 });

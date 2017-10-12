@@ -1,17 +1,18 @@
-import React from "react";
+/* eslint-disable */
+import React from 'react';
 
-import Message from "./Message";
+import Message from './Message';
 
-import { shallow, mount, render } from "enzyme";
-import TestUtils from "react-addons-test-utils";
+import { shallow, mount, render } from 'enzyme';
+import TestUtils from 'react-addons-test-utils';
 
-var setup = function() {
+const setup = function() {
   return shallow(<Message />);
 };
 
-describe("<Message />", () => {
-  it("should render a parent <div> element", () => {
+describe('<Message />', () => {
+  it('should render a parent <div> element', () => {
     const wrapper = setup();
-    expect(wrapper.find("div"));
+    expect(wrapper.find('div'));
   });
 });
