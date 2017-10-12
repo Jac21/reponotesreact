@@ -46,6 +46,7 @@ class App extends Component {
 
     const cachedHits = localStorage.getItem(value);
     if (cachedHits) {
+      localStorage.setItem('LastHandle', this.state.username);
       this.setState({ repositories: JSON.parse(cachedHits) });
       return;
     }
@@ -66,6 +67,12 @@ class App extends Component {
       localStorage.setItem(key, JSON.stringify(result));
       this.setState({ errorState: false });
       this.setState({ repositories: result });
+    }
+  };
+
+  handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      this.onSearch(e);
     }
   };
 
@@ -94,6 +101,7 @@ class App extends Component {
                   id="form-github-username"
                   aria-label="Enter your GitHub Username..."
                   placeholder={this.state.username || 'GitHub Username...'}
+                  onKeyPress={this.handleKeyPress}
                   ref={node => (this.input = node)}
                 />
                 <button
