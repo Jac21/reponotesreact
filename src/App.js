@@ -42,11 +42,12 @@ class App extends Component {
     if (value === '') {
       return;
     }
+
     this.setState({ username: value });
 
     const cachedHits = localStorage.getItem(value);
     if (cachedHits) {
-      localStorage.setItem('LastHandle', this.state.username);
+      localStorage.setItem('LastHandle', value);
       this.setState({ repositories: JSON.parse(cachedHits) });
       return;
     }
