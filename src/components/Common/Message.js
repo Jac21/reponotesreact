@@ -9,6 +9,16 @@ const fadeInAndOut = css.keyframes('fadeInAndOut', {
   '100%': { opacity: '0' },
 });
 
+const check = css({
+  stroke: '#0a0',
+  verticalAlign: 'text-top',
+});
+
+const messageText = css({
+  paddingLeft: '3px',
+  display: 'inline',
+});
+
 class Message extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +33,19 @@ class Message extends Component {
           animation: `${fadeInAndOut} 3s ease 0s infinite`,
         })}
       >
-        {this.props.text}
+        <span>
+          <svg
+            {...check}
+            aria-hidden="true"
+            height="14"
+            version="1.1"
+            viewBox="0 0 12 16"
+            width="12"
+          >
+            <path fillRule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z" />
+          </svg>
+          <div {...messageText}>{this.props.text}</div>
+        </span>
       </div>
     );
   }
