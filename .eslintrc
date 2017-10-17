@@ -4,6 +4,7 @@
   "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
     "linebreak-style": 0,
+    "function-paren-newline": 0,
     "comma-dangle": 0,
     "arrow-parens": 0,
     "arrow-body-style": 0,

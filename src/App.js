@@ -27,7 +27,9 @@ class App extends Component {
   // local storage cache when component mounts, set state accordingly
   componentDidMount() {
     if (this.state.username) {
-      const cachedRepositories = localStorage.getItem(this.state.username);
+      const cachedRepositories = localStorage.getItem(
+        this.state.username.toLocaleLowerCase()
+      );
       this.setState({ repositories: JSON.parse(cachedRepositories) });
     }
   }
@@ -60,12 +62,13 @@ class App extends Component {
       .then(result => this.onSetResult(result, value));
   };
 
+  // Set local storage values and results from call if successful
   onSetResult = (result, key) => {
     if (result.message === 'Not Found') {
       this.setState({ errorState: true });
     } else {
       localStorage.setItem('LastHandle', this.state.username);
-      localStorage.setItem(key, JSON.stringify(result));
+      localStorage.setItem(key.toLocaleLowerCase(), JSON.stringify(result));
       this.setState({ errorState: false });
       this.setState({ repositories: result });
     }
