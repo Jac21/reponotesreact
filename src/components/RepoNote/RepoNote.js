@@ -6,14 +6,14 @@ import { css } from 'glamor';
 import Message from '../Common/Message';
 
 const repoNoteLabel = css({
-  fontSize: `${1.175}rem`,
+  fontSize: `${1.175}rem`
 });
 
 const sectionDivider = css({
   height: `${1}px`,
   maxWidth: `${100}vw`,
   margin: '0 auto 1em auto',
-  background: '#FFB400',
+  background: '#FFB400'
 });
 
 // Singular repository note component
@@ -21,11 +21,14 @@ class RepoNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: localStorage.getItem(this.props.username + this.props.repositoryName) || '',
+      note:
+        localStorage.getItem(
+          this.props.username.toLocaleLowerCase() + this.props.repositoryName
+        ) || '',
       saveDisabled: true,
       exportDisabled: true,
       showSuccessMessage: false,
-      exportSuccessMessage: false,
+      exportSuccessMessage: false
     };
   }
 
@@ -37,7 +40,7 @@ class RepoNote extends Component {
   }
 
   // Handles textarea change event, saves value to state variable
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({ saveDisabled: false });
     this.setState({ note: e.target.value });
   };
@@ -46,7 +49,10 @@ class RepoNote extends Component {
   // ensure no collisions occur when using multiple accounts, saves textarea value
   // and enables export button
   saveNote = () => {
-    localStorage.setItem(this.props.username + this.props.repositoryName, this.state.note);
+    localStorage.setItem(
+      this.props.username.toLocaleLowerCase() + this.props.repositoryName,
+      this.state.note
+    );
     this.setState({ exportDisabled: false });
 
     this.setState({ showSuccessMessage: true });
@@ -58,7 +64,7 @@ class RepoNote extends Component {
   // Creates and downloads a text file representatin of the repo note
   exportNote = () => {
     const blob = new Blob([this.state.note], {
-      type: 'text/plain;charset=utf-8',
+      type: 'text/plain;charset=utf-8'
     });
 
     const a = document.createElement('a');
@@ -83,13 +89,15 @@ class RepoNote extends Component {
       <section className="repo-note-container">
         <div className="field" id={`${this.props.repositoryName}Field`}>
           <label
-            htmlFor={`${this.props.username}${this.props.repositoryName}InputLabel`}
+            htmlFor={`${this.props.username}${this.props
+              .repositoryName}InputLabel`}
             {...repoNoteLabel}
           >
             {this.props.repositoryName}
           </label>
           <textarea
-            id={`${this.props.username}${this.props.repositoryName}InputTextarea`}
+            id={`${this.props.username}${this.props
+              .repositoryName}InputTextarea`}
             value={this.state.note}
             onChange={this.handleChange}
             cols="30"
@@ -107,7 +115,8 @@ class RepoNote extends Component {
 
           <div className="button-group">
             <button
-              id={`${this.props.username}${this.props.repositoryName}SaveButton`}
+              id={`${this.props.username}${this.props
+                .repositoryName}SaveButton`}
               className="button"
               onClick={this.saveNote}
               disabled={this.state.saveDisabled}
@@ -115,7 +124,8 @@ class RepoNote extends Component {
               Save
             </button>
             <button
-              id={`${this.props.username}${this.props.repositoryName}ExportButton`}
+              id={`${this.props.username}${this.props
+                .repositoryName}ExportButton`}
               className="button"
               onClick={this.exportNote}
               disabled={this.state.exportDisabled}
@@ -132,7 +142,7 @@ class RepoNote extends Component {
 
 RepoNote.propTypes = {
   repositoryName: PropTypes.string,
-  username: PropTypes.string,
+  username: PropTypes.string
 };
 
 export default RepoNote;
