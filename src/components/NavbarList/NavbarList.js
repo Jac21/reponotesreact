@@ -9,17 +9,17 @@ const repoListItem = css({
   padding: 0,
   fontWeight: 500,
   fontSize: `${1}rem`,
-  lineHeight: 1.35,
+  lineHeight: 1.35
 });
 
 const repoListLink = css({
   display: 'block',
   padding: '.5em 1em',
-  textDecoration: 'none',
+  textDecoration: 'none'
 });
 
 const repoListLinkText = css({
-  cursor: 'pointer',
+  cursor: 'pointer'
 });
 
 // Singular list component for Navbar, contains list of repositories for current user
@@ -27,7 +27,10 @@ class NavbarList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: localStorage.getItem(this.props.username + this.props.repositoryName) || '',
+      note:
+        localStorage.getItem(
+          this.props.username.toLocaleLowerCase() + this.props.repositoryName
+        ) || ''
     };
   }
 
@@ -46,7 +49,7 @@ class NavbarList extends Component {
           onClick={() =>
             scrollToElement(`#${this.props.repositoryName}Field`, {
               offset: 0,
-              duration: 500,
+              duration: 500
             })}
           {...repoListLink}
         >
@@ -60,7 +63,7 @@ class NavbarList extends Component {
 NavbarList.propTypes = {
   username: PropTypes.string,
   repositoryLink: PropTypes.string,
-  repositoryName: PropTypes.string,
+  repositoryName: PropTypes.string
 };
 
 export default NavbarList;
