@@ -14,7 +14,7 @@ const navbar = css({
   overflow: 'auto',
   WebkitOverflowScrolling: 'touch',
   background: 'white',
-  borderRight: `${1}px solid #e5e5e8`,
+  borderRight: `${1}px solid #e5e5e8`
 });
 
 // Parent Navbar component
@@ -22,12 +22,20 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      input: '',
+      input: ''
     };
   }
 
+  includesPolyfilled = (name, input) => {
+    if (!String.prototype.includes) {
+      return name.indexOf(input) !== -1;
+    }
+
+    return name.includes(input);
+  };
+
   // Handles input change event, saves value to state variable
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({ input: e.target.value });
   };
 
@@ -46,7 +54,11 @@ class Navbar extends Component {
           <ul>
             {this.props.repositories &&
               this.props.repositories
-                .filter(d => this.state.input === '' || d.name.includes(this.state.input))
+                .filter(
+                  d =>
+                    this.state.input === '' ||
+                    this.includesPolyfilled(d.name, this.state.input)
+                )
                 .map(item => (
                   <NavbarList
                     key={item.id}
@@ -64,7 +76,7 @@ class Navbar extends Component {
 
 Navbar.propTypes = {
   username: PropTypes.string,
-  repositories: PropTypes.array,
+  repositories: PropTypes.array
 };
 
 export default Navbar;
