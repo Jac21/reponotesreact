@@ -1,5 +1,11 @@
 /* Palette: http://colorhunt.co/c/9140 */
 
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .main {
   padding-left: 260px;
 }
