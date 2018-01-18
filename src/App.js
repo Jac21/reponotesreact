@@ -10,7 +10,8 @@ import RepoNoteList from './components/RepoNoteList/RepoNoteList';
 import './css/App.css';
 
 const formGroup = css({
-  marginTop: `${1}em`
+  marginTop: `${1}em`,
+  marginBottom: `${0.5}em`
 });
 
 class App extends Component {
