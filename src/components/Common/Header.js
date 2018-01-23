@@ -4,21 +4,25 @@ import PropTypes from 'prop-types';
 import { css } from 'glamor';
 
 const header = css({
-  backgroundColor: '#FFB400',
+  backgroundColor: '#FFB400'
 });
 
 const headerWrapper = css({
   paddingLeft: 'calc(1rem + .5vw)',
-  paddingRight: 'calc(1rem + .5vw)',
+  paddingRight: 'calc(1rem + .5vw)'
 });
 
 const headerText = css({
-  color: '#474744',
+  color: '#474744'
 });
 
 const subHeaderText = css({
   fontSize: '1.1rem',
-  marginTop: '-1em',
+  marginTop: '-1em'
+});
+
+const headerLink = css({
+  textDecoration: 'none'
 });
 
 class Header extends Component {
@@ -32,11 +36,14 @@ class Header extends Component {
       <header className="header padding-vertical-xl" {...header}>
         <div {...headerWrapper}>
           <h1 {...headerText}>
-            RepoNotes
+            <a href="https://www.reponotes.com" {...headerLink}>
+              RepoNotes
+            </a>
             <span>{this.props.username && ` for ${this.props.username}`}</span>
           </h1>
           <p {...css(headerText, subHeaderText)}>
-            Offline-capable, locally persisted ideation assister for your GitHub repositories
+            Offline-capable, locally persisted ideation assister for your GitHub
+            repositories
           </p>
         </div>
       </header>
@@ -45,7 +52,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  username: PropTypes.string,
+  username: PropTypes.string
 };
 
 export default Header;
