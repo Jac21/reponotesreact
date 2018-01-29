@@ -35,7 +35,7 @@ textarea:not(:disabled):focus {
   padding-bottom: calc(4rem + -0.5vw);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 957px) {
   .main {
     padding-left: 0px;
   }
