@@ -1,6 +1,6 @@
 # RepoNotes
 
-[![CircleCI](https://circleci.com/gh/Jac21/reponotesreact/tree/master.svg?style=shield)](https://circleci.com/gh/Jac21/reponotesreact/tree/master)
+[![CircleCI](https://circleci.com/gh/Jac21/reponotesreact/tree/master.svg?style=shield)](https://circleci.com/gh/Jac21/reponotesreact/tree/master) [![donate](https://img.shields.io/badge/%24-Buy%20me%20a%20coffee-ff69b4.svg)](https://www.buymeacoffee.com/jac21)
 
 Offline-capable, progressive-web-application, taking advantage of React, turretcss and Radium, as well as the Fetch and Local Storage APIs, to provide a small ideation and informal task-tracking tool for your GitHub repositories.
 
