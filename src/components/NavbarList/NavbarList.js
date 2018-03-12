@@ -37,7 +37,8 @@ class NavbarList extends Component {
   // Change styling of list item link if note exists for that particular repo
   componentDidMount() {
     if (this.state.note !== '') {
-      this.refs.listItemLink.style.color = '#FFB400';
+      this.refs.listItemLink.style.color = '#474744';
+      this.refs.listItemLink.style.backgroundColor = '#FFB400';
     }
   }
 
