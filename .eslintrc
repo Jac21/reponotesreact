@@ -1,5 +1,8 @@
 {
   "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
   "extends": "airbnb",
   "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
@@ -11,7 +14,9 @@
     "space-before-function-paren": 0,
     "react/jsx-filename-extension": [
       "error",
-      { "extensions": [".js", ".jsx"] }
+      {
+        "extensions": [".js", ".jsx"]
+      }
     ],
     "import/no-extraneous-dependencies": 0,
     "react/require-default-props": 0,
@@ -23,6 +28,10 @@
     "jsx-a11y/no-static-element-interactions": 0
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "Promise": false
   }
 }

@@ -33,7 +33,7 @@
     "scroll-to-element": "^2.0.0",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",
-    "turretcss": "^4.0.4",
+    "turretcss": "^4.1.1",
     "url-loader": "0.5.9",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.2",
@@ -50,7 +50,7 @@
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "enzyme": "^3.3.0",
-    "eslint": "^4.18.2",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-react-app": "^2.1.0",
     "eslint-loader": "1.9.0",
