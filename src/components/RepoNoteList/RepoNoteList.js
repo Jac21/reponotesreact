@@ -6,12 +6,12 @@ import { css } from 'glamor';
 import RepoNote from '../RepoNote/RepoNote';
 
 const header = css({
-  margin: `${0.5}em auto`,
+  margin: `${0.5}em auto`
 });
 
 const infoLabel = css({
   position: 'absolute',
-  transform: 'translate(0, 50%)',
+  transform: 'translate(0, 50%)'
 });
 
 // Parent component for repo notes, maps data to each note component
@@ -35,7 +35,12 @@ class RepoNoteList extends Component {
         <div>
           {this.props.repositories &&
             this.props.repositories.map(item => (
-              <RepoNote key={item.id} repositoryName={item.name} username={this.props.username} />
+              <RepoNote
+                key={item.id}
+                repositoryName={item.name}
+                repositoryUrl={item.html_url}
+                username={this.props.username}
+              />
             ))}
         </div>
       </div>
@@ -45,7 +50,7 @@ class RepoNoteList extends Component {
 
 RepoNoteList.propTypes = {
   repositories: PropTypes.array,
-  username: PropTypes.string,
+  username: PropTypes.string
 };
 
 export default RepoNoteList;

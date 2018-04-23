@@ -6,7 +6,8 @@ import { css } from 'glamor';
 import Message from '../Common/Message';
 
 const repoNoteLabel = css({
-  fontSize: `${1.175}rem`
+  fontSize: `${1.175}rem`,
+  cursor: 'pointer'
 });
 
 const sectionDivider = css({
@@ -22,9 +23,8 @@ class RepoNote extends Component {
     super(props);
     this.state = {
       note:
-        localStorage.getItem(
-          this.props.username.toLocaleLowerCase() + this.props.repositoryName
-        ) || '',
+        localStorage.getItem(this.props.username.toLocaleLowerCase() + this.props.repositoryName) ||
+        '',
       saveDisabled: true,
       exportDisabled: true,
       showSuccessMessage: false,
@@ -88,16 +88,21 @@ class RepoNote extends Component {
     return (
       <section className="repo-note-container">
         <div className="field" id={`${this.props.repositoryName}Field`}>
-          <label
-            htmlFor={`${this.props.username}${this.props
-              .repositoryName}InputLabel`}
-            {...repoNoteLabel}
+          <a
+            href={`${this.props.repositoryUrl}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            id={`${this.props.repositoryName}HtmlUrl`}
           >
-            {this.props.repositoryName}
-          </label>
+            <label
+              htmlFor={`${this.props.username}${this.props.repositoryName}InputLabel`}
+              {...repoNoteLabel}
+            >
+              {this.props.repositoryName}
+            </label>
+          </a>
           <textarea
-            id={`${this.props.username}${this.props
-              .repositoryName}InputTextarea`}
+            id={`${this.props.username}${this.props.repositoryName}InputTextarea`}
             value={this.state.note}
             onChange={this.handleChange}
             cols="30"
@@ -115,8 +120,7 @@ class RepoNote extends Component {
 
           <div className="button-group">
             <button
-              id={`${this.props.username}${this.props
-                .repositoryName}SaveButton`}
+              id={`${this.props.username}${this.props.repositoryName}SaveButton`}
               className="button"
               onClick={this.saveNote}
               disabled={this.state.saveDisabled}
@@ -124,8 +128,7 @@ class RepoNote extends Component {
               Save
             </button>
             <button
-              id={`${this.props.username}${this.props
-                .repositoryName}ExportButton`}
+              id={`${this.props.username}${this.props.repositoryName}ExportButton`}
               className="button"
               onClick={this.exportNote}
               disabled={this.state.exportDisabled}
@@ -142,6 +145,7 @@ class RepoNote extends Component {
 
 RepoNote.propTypes = {
   repositoryName: PropTypes.string,
+  repositoryUrl: PropTypes.string,
   username: PropTypes.string
 };
 
