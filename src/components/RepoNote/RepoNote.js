@@ -27,15 +27,22 @@ class RepoNote extends Component {
         '',
       saveDisabled: true,
       exportDisabled: true,
+      copyDisabled: true,
       showSuccessMessage: false,
-      exportSuccessMessage: false
+      exportSuccessMessage: false,
+      copySuccessMessage: false
     };
   }
 
-  // Enables export button if note had been pre-filled
+  // Disables export button if note had not been pre-filled,
+  // copy button appearance if clipboard object doesn't exist
   componentDidMount() {
     if (this.state.note !== '') {
       this.setState({ exportDisabled: false });
+
+      if (navigator.clipboard) {
+        this.setState({ copyDisabled: false });
+      }
     }
   }
 
@@ -53,7 +60,14 @@ class RepoNote extends Component {
       this.props.username.toLocaleLowerCase() + this.props.repositoryName,
       this.state.note
     );
-    this.setState({ exportDisabled: false });
+
+    if (this.state.note === '') {
+      this.setState({ exportDisabled: true });
+      this.setState({ copyDisabled: true });
+    } else {
+      this.setState({ exportDisabled: false });
+      this.setState({ copyDisabled: false });
+    }
 
     this.setState({ showSuccessMessage: true });
     setTimeout(() => {
@@ -82,6 +96,18 @@ class RepoNote extends Component {
     setTimeout(() => {
       this.setState({ exportSuccessMessage: false });
     }, 3000);
+  };
+
+  // Copy note to clipboard
+  // logic found here: https://codepen.io/hankchizljaw/pen/Vxpjvo
+  copyNote = () => {
+    navigator.clipboard.writeText(this.state.note)
+      .then(() => {
+        this.setState({ copySuccessMessage: true });
+        setTimeout(() => {
+          this.setState({ copySuccessMessage: false });
+        }, 3000);
+      });
   };
 
   render() {
@@ -118,6 +144,10 @@ class RepoNote extends Component {
             <Message kind="primary" text="Successfully exported!" />
           ) : null}
 
+          {this.state.copySuccessMessage ? (
+            <Message kind="primary" text="Successfully copied to clipboard!" />
+          ) : null}
+
           <div className="button-group">
             <button
               id={`${this.props.username}${this.props.repositoryName}SaveButton`}
@@ -134,6 +164,14 @@ class RepoNote extends Component {
               disabled={this.state.exportDisabled}
             >
               Export
+            </button>
+            <button
+              id={`${this.props.username}${this.props.repositoryName}CopyButton`}
+              className="button"
+              onClick={this.copyNote}
+              disabled={this.state.copyDisabled}
+            >
+            Copy
             </button>
           </div>
         </div>
