@@ -13,11 +13,12 @@ const headerWrapper = css({
 });
 
 const headerText = css({
+  fontSize: '2.5rem',
   color: '#474744'
 });
 
 const subHeaderText = css({
-  fontSize: '1.1rem',
+  fontSize: '1.2rem',
   marginTop: '-1em'
 });
 
@@ -42,8 +43,7 @@ class Header extends Component {
             <span>{this.props.username && ` for ${this.props.username}`}</span>
           </h1>
           <p {...css(headerText, subHeaderText)}>
-            Offline-capable, locally persisted ideation assister for your GitHub
-            repositories
+            Offline-capable, locally-persisted ideation assister for your GitHub repositories
           </p>
         </div>
       </header>
