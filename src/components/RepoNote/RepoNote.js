@@ -101,13 +101,12 @@ class RepoNote extends Component {
   // Copy note to clipboard
   // logic found here: https://codepen.io/hankchizljaw/pen/Vxpjvo
   copyNote = () => {
-    navigator.clipboard.writeText(this.state.note)
-      .then(() => {
-        this.setState({ copySuccessMessage: true });
-        setTimeout(() => {
-          this.setState({ copySuccessMessage: false });
-        }, 3000);
-      });
+    navigator.clipboard.writeText(this.state.note).then(() => {
+      this.setState({ copySuccessMessage: true });
+      setTimeout(() => {
+        this.setState({ copySuccessMessage: false });
+      }, 3000);
+    });
   };
 
   render() {
@@ -171,7 +170,7 @@ class RepoNote extends Component {
               onClick={this.copyNote}
               disabled={this.state.copyDisabled}
             >
-            Copy
+              Copy
             </button>
           </div>
         </div>
