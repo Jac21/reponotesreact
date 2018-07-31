@@ -31,7 +31,9 @@ class App extends Component {
       const cachedRepositories = localStorage.getItem(
         this.state.username.toLocaleLowerCase()
       );
-      this.setState({ repositories: JSON.parse(cachedRepositories) });
+      this.setState({
+        repositories: JSON.parse(this.atou(cachedRepositories))
+      });
     }
   }
 
@@ -50,8 +52,8 @@ class App extends Component {
 
     const cachedHits = localStorage.getItem(value);
     if (cachedHits) {
-      localStorage.setItem('LastHandle', value);
-      this.setState({ repositories: JSON.parse(cachedHits) });
+      localStorage.LastHandle = value;
+      this.setState({ repositories: JSON.parse(this.atou(cachedHits)) });
       return;
     }
 
@@ -68,8 +70,11 @@ class App extends Component {
     if (result.message === 'Not Found') {
       this.setState({ errorState: true });
     } else {
-      localStorage.setItem('LastHandle', this.state.username);
-      localStorage.setItem(key.toLocaleLowerCase(), JSON.stringify(result));
+      localStorage.LastHandle = this.state.username;
+      localStorage.setItem(
+        key.toLocaleLowerCase(),
+        this.utoa(JSON.stringify(result))
+      );
       this.setState({ errorState: false });
       this.setState({ repositories: result });
     }
@@ -79,6 +84,15 @@ class App extends Component {
     if (e.key === 'Enter') {
       this.onSearch(e);
     }
+  };
+
+  // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/btoa#Unicode_strings
+  utoa = str => {
+    return window.btoa(unescape(encodeURIComponent(str)));
+  };
+
+  atou = str => {
+    return decodeURIComponent(escape(window.atob(str)));
   };
 
   render() {
