@@ -7,6 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* turretcss overrides */
+
 .main {
   padding-left: 260px;
 }
@@ -44,6 +46,8 @@ textarea:not(:disabled):focus {
     display: none;
   }
 }
+
+/* Octocat SVG Styling */
 
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;

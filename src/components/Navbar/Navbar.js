@@ -17,6 +17,10 @@ const navbar = css({
   borderRight: `${1}px solid #e5e5e8`
 });
 
+const navbarInput = css({
+  margin: 0
+});
+
 // Parent Navbar component
 class Navbar extends Component {
   constructor(props) {
@@ -43,6 +47,7 @@ class Navbar extends Component {
     return (
       <aside {...navbar} className="sidebar">
         <input
+          {...navbarInput}
           id="search-input"
           className="search-input"
           type="search"
@@ -55,9 +60,7 @@ class Navbar extends Component {
             {this.props.repositories &&
               this.props.repositories
                 .filter(
-                  d =>
-                    this.state.input === '' ||
-                    this.includesPolyfilled(d.name, this.state.input)
+                  d => this.state.input === '' || this.includesPolyfilled(d.name, this.state.input)
                 )
                 .map(item => (
                   <NavbarList
