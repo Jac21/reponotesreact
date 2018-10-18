@@ -24,7 +24,7 @@ class RepoNoteList extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         {this.props.repositories ? (
           <h2 {...header}>Repositories</h2>
         ) : (
@@ -43,7 +43,7 @@ class RepoNoteList extends Component {
               />
             ))}
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
