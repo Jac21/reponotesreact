@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { css } from 'glamor';
@@ -16,41 +16,34 @@ const infoLabel = css({
 
 // Parent component for repo notes, maps data to each note component
 // utilizing the repository name and associated ID
-class RepoNoteList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        {this.props.repositories ? (
-          <h2 {...header}>Repositories</h2>
-        ) : (
-          <div {...infoLabel}>
-            Enter your GitHub username above to load your repositories and start taking notes!
-          </div>
-        )}
-        <div>
-          {this.props.repositories &&
-            this.props.repositories.map(item => (
-              <RepoNote
-                key={item.id}
-                repositoryName={item.name}
-                repositoryUrl={item.html_url}
-                username={this.props.username}
-              />
-            ))}
+const RepoNoteList = props => {
+  return (
+    <React.Fragment>
+      {props.repositories ? (
+        <h2 {...header}>Repositories</h2>
+      ) : (
+        <div {...infoLabel}>
+          Enter your GitHub username above to load your repositories and start taking notes!
         </div>
-      </React.Fragment>
-    );
-  }
-}
+      )}
+      <div>
+        {props.repositories &&
+          props.repositories.map(item => (
+            <RepoNote
+              key={item.id}
+              repositoryName={item.name}
+              repositoryUrl={item.html_url}
+              username={props.username}
+            />
+          ))}
+      </div>
+    </React.Fragment>
+  );
+};
 
 RepoNoteList.propTypes = {
   repositories: PropTypes.array,
   username: PropTypes.string
 };
 
-export default RepoNoteList;
+export default React.memo(RepoNoteList);

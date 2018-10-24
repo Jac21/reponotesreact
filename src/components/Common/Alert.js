@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { css } from 'glamor';
@@ -14,24 +14,17 @@ const error = css({
   backgroundColor: '#d91e18'
 });
 
-class Alert extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <div {...css(swatch, error)}>{this.props.message}</div>
-      </React.Fragment>
-    );
-  }
-}
+const Alert = ({ message }) => {
+  return (
+    <React.Fragment>
+      <div {...css(swatch, error)}> {message} </div>{' '}
+    </React.Fragment>
+  );
+};
 
 Alert.propTypes = {
   kind: PropTypes.oneOf(['primary', 'warning', 'error']).isRequired,
   message: PropTypes.string
 };
 
-export default Alert;
+export default React.memo(Alert);

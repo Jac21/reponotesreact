@@ -28,9 +28,7 @@ class App extends Component {
   // local storage cache when component mounts, set state accordingly
   componentDidMount() {
     if (this.state.username) {
-      const cachedRepositories = localStorage.getItem(
-        this.state.username.toLocaleLowerCase()
-      );
+      const cachedRepositories = localStorage.getItem(this.state.username.toLocaleLowerCase());
       this.setState({
         repositories: JSON.parse(this.atou(cachedRepositories))
       });
@@ -57,12 +55,7 @@ class App extends Component {
       return;
     }
 
-    fetch(`https://api.github.com/users/${value}/repos`)
-      .catch(error => {
-        return Promise.reject(error);
-      })
-      .then(response => response.json())
-      .then(result => this.onSetResult(result, value));
+    this.fetchRepositoryData(value);
   };
 
   // Set local storage values and results from call if successful
@@ -71,10 +64,7 @@ class App extends Component {
       this.setState({ errorState: true });
     } else {
       localStorage.LastHandle = this.state.username;
-      localStorage.setItem(
-        key.toLocaleLowerCase(),
-        this.utoa(JSON.stringify(result))
-      );
+      localStorage.setItem(key.toLocaleLowerCase(), this.utoa(JSON.stringify(result)));
       this.setState({ errorState: false });
       this.setState({ repositories: result });
     }
@@ -84,6 +74,15 @@ class App extends Component {
     if (e.key === 'Enter') {
       this.onSearch(e);
     }
+  };
+
+  fetchRepositoryData = value => {
+    fetch(`https://api.github.com/users/${value}/repos`)
+      .catch(error => {
+        return Promise.reject(error);
+      })
+      .then(response => response.json())
+      .then(result => this.onSetResult(result, value));
   };
 
   // https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/btoa#Unicode_strings
@@ -98,10 +97,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar
-          username={this.state.username}
-          repositories={this.state.repositories}
-        />
+        <Navbar username={this.state.username} repositories={this.state.repositories} />
         <div className="main">
           <Header username={this.state.username} />
 
@@ -133,10 +129,7 @@ class App extends Component {
               </div>
             </form>
 
-            <RepoNoteList
-              repositories={this.state.repositories}
-              username={this.state.username}
-            />
+            <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
           </div>
         </div>
       </div>
