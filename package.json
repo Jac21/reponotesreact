@@ -27,9 +27,9 @@
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.6",
     "promise": "^8.0.2",
-    "react": "^16.6.0",
+    "react": "^16.6.1",
     "react-dev-utils": "^4.2.3",
-    "react-dom": "^16.6.0",
+    "react-dom": "^16.6.1",
     "scroll-to-element": "^2.0.2",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.4",
@@ -45,9 +45,16 @@
     "deploy": "gh-pages -d build",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js && sw-precache --config=sw-precache-config.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^4.0.4",
+    "@storybook/addon-knobs": "^4.0.4",
+    "@storybook/addon-links": "^4.0.4",
+    "@storybook/addons": "^4.0.4",
+    "@storybook/react": "^4.0.4",
     "babel-eslint": "^8.2.6",
     "enzyme": "^3.7.0",
     "eslint": "^4.19.1",
@@ -60,7 +67,7 @@
     "eslint-plugin-react": "^7.11.1",
     "prettier-eslint": "^8.8.2",
     "react-addons-test-utils": "^15.6.2",
-    "react-test-renderer": "^16.6.0",
+    "react-test-renderer": "^16.6.1",
     "sw-precache": "^5.2.1"
   },
   "jest": {
