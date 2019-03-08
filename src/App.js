@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import { css } from 'glamor';
 
-import Header from './components/Common/Header';
-import Alert from './components/Common/Alert';
+import Header from './components/Common/Header/Header';
+import Alert from './components/Common/Alert/Alert';
 import Navbar from './components/Navbar/Navbar';
 import RepoNoteList from './components/RepoNoteList/RepoNoteList';
 

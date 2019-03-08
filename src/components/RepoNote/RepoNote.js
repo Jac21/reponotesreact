@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { css } from 'glamor';
 
-import Message from '../Common/Message';
+import Message from '../Common/Message/Message';
 
 const repoNoteLabel = css({
   fontSize: `${1.175}rem`,

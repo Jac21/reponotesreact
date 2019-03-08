@@ -46,7 +46,7 @@ const Header = ({ username }) => {
 };
 
 Header.propTypes = {
-  username: PropTypes.string.isRequired
+  username: PropTypes.string
 };
 
 // https://reactjs.org/docs/react-api.html#reactmemo

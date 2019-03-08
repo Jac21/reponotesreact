@@ -10,9 +10,9 @@ import { Welcome } from '@storybook/react/demo';
 
 import '../src/css/App.css';
 
-import Alert from '../src/components/Common/Alert';
-import Header from '../src/components/Common/Header';
-import Message from '../src/components/Common/Message';
+import Alert from '../src/components/Common/Alert/Alert';
+import Header from '../src/components/Common/Header/Header';
+import Message from '../src/components/Common/Message/Message';
 import RepoNote from '../src/components/RepoNote/RepoNote';
 
 storiesOf('Welcome', module).add('to the reponotesreact Storybook', () => (
