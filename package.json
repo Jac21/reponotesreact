@@ -50,13 +50,13 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^4.1.13",
-    "@storybook/addon-knobs": "^4.1.13",
-    "@storybook/addon-links": "^4.1.13",
-    "@storybook/addons": "^4.1.13",
-    "@storybook/react": "^4.1.13",
+    "@storybook/addon-actions": "^4.1.18",
+    "@storybook/addon-knobs": "^4.1.18",
+    "@storybook/addon-links": "^4.1.18",
+    "@storybook/addons": "^4.1.18",
+    "@storybook/react": "^4.1.18",
     "babel-eslint": "^8.2.6",
-    "enzyme": "^3.9.0",
+    "enzyme": "^3.10.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-react-app": "^2.1.0",
@@ -64,10 +64,10 @@
     "eslint-plugin-flowtype": "2.35.0",
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
-    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react": "^7.14.2",
     "prettier-eslint": "^8.8.2",
     "react-addons-test-utils": "^15.6.2",
-    "react-test-renderer": "^16.8.4",
+    "react-test-renderer": "^16.8.6",
     "sw-precache": "^5.2.1"
   },
   "jest": {
