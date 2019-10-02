@@ -17,7 +17,7 @@ const error = css({
 const Alert = ({ message }) => {
   return (
     <React.Fragment>
-      <div {...css(swatch, error)}> {message} </div>{' '}
+      <div {...css(swatch, error)}> {message} </div>
     </React.Fragment>
   );
 };
