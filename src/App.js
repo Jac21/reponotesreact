@@ -96,43 +96,45 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Navbar username={this.state.username} repositories={this.state.repositories} />
-        <div className="main">
-          <Header username={this.state.username} />
+      <React.StrictMode>
+        <div className="App">
+          <Navbar username={this.state.username} repositories={this.state.repositories} />
+          <div className="main">
+            <Header username={this.state.username} />
 
-          <div className="container">
-            {this.state.errorState ? (
-              <Alert
-                kind="error"
-                message="User not found! Please try entering an existing GitHub user again."
-              />
-            ) : null}
-
-            <form onSubmit={this.onSearch} {...formGroup}>
-              <div className="input-group">
-                <input
-                  type="text"
-                  id="form-github-username"
-                  aria-label="Enter your GitHub Username..."
-                  placeholder={this.state.username || 'GitHub Username...'}
-                  onKeyPress={this.handleKeyPress}
-                  ref={node => (this.input = node)}
+            <div className="container">
+              {this.state.errorState ? (
+                <Alert
+                  kind="error"
+                  message="User not found! Please try entering an existing GitHub user again."
                 />
-                <button
-                  type="submit"
-                  className="button button-primary button-primary-reponotes"
-                  onClick={this.onSearch}
-                >
-                  Show Your Repos
-                </button>
-              </div>
-            </form>
+              ) : null}
 
-            <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
+              <form onSubmit={this.onSearch} {...formGroup}>
+                <div className="input-group">
+                  <input
+                    type="text"
+                    id="form-github-username"
+                    aria-label="Enter your GitHub Username..."
+                    placeholder={this.state.username || 'GitHub Username...'}
+                    onKeyPress={this.handleKeyPress}
+                    ref={node => (this.input = node)}
+                  />
+                  <button
+                    type="submit"
+                    className="button button-primary button-primary-reponotes"
+                    onClick={this.onSearch}
+                  >
+                    Show Your Repos
+                  </button>
+                </div>
+              </form>
+
+              <RepoNoteList repositories={this.state.repositories} username={this.state.username} />
+            </div>
           </div>
         </div>
-      </div>
+      </React.StrictMode>
     );
   }
 }
