@@ -20,7 +20,7 @@
     "fs-extra": "3.0.1",
     "gh-pages": "^1.2.0",
     "glamor": "^2.20.40",
-    "html-webpack-plugin": "2.29.0",
+    "html-webpack-plugin": "5.6.0",
     "jest": "29.7.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
@@ -53,7 +53,7 @@
     "@storybook/addon-knobs": "^4.1.18",
     "@storybook/addon-links": "^4.1.18",
     "@storybook/addons": "^4.1.18",
-    "@storybook/react": "^4.1.18",
+    "@storybook/react": "^7.6.8",
     "enzyme": "^3.11.0",
     "react-test-renderer": "^16.14.0",
     "sw-precache": "^5.2.1"
