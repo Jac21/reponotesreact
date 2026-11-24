@@ -1,7 +1,6 @@
 # RepoNotes
 
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![CircleCI](https://circleci.com/gh/Jac21/reponotesreact/tree/master.svg?style=shield)](https://circleci.com/gh/Jac21/reponotesreact/tree/master) 
 [![Storybook](https://github.com/storybooks/brand/blob/master/badge/badge-storybook.svg)](https://github.com/Jac21/reponotesreact/tree/master/stories)
 
 
